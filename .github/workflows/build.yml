@@ -16,7 +16,7 @@ jobs:
     uses: nodecfdi/.github/.github/workflows/quality_code.yml@main
 
   build:
-    name: Node unit tests
+    name: tests
     runs-on: ubuntu-latest
     strategy:
       matrix:

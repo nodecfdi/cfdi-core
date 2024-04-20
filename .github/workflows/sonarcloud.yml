@@ -1,0 +1,10 @@
+name: sonarcloud
+on:
+  push:
+    branches:
+      - main
+      - dev
+
+jobs:
+  sonarcloud:
+    uses: nodecfdi/.github/.github/workflows/sonarcloud.yml@main
