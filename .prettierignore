@@ -1,0 +1,7 @@
+examples
+build
+dist
+docs
+coverage
+*.html
+tests/_files

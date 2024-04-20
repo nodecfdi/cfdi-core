@@ -1,0 +1,70 @@
+{
+  "name": "@nodecfdi/cfdi-core",
+  "version": "0.0.0",
+  "description": "Librería que contiene las herramientas base para trabajar con CFDI's",
+  "type": "module",
+  "main": "index.js",
+  "files": [],
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "imports": {
+    "#src/*": "./src/*.js",
+    "#tests/*": "./tests/*.js"
+  },
+  "scripts": {
+    "prepare": "is-in-ci || husky",
+    "lint": "eslint . --fix",
+    "lint:check": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.6.1",
+    "@commitlint/config-conventional": "^18.6.3",
+    "@nodecfdi/eslint-config": "^1.6.4",
+    "@nodecfdi/prettier-config": "^1.1.1",
+    "@nodecfdi/tsconfig": "^1.5.0",
+    "@types/lodash.isequal": "^4.5.8",
+    "@vitest/coverage-istanbul": "^1.5.0",
+    "eslint": "^8.57.0",
+    "eslint-define-config": "^2.1.0",
+    "husky": "^9.0.11",
+    "is-in-ci": "^0.1.0",
+    "jest-xml-matcher": "^1.2.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.5",
+    "vitest": "^1.5.0"
+  },
+  "dependencies": {
+    "@xmldom/xmldom": "^0.8.10",
+    "lodash.isequal": "^4.5.0"
+  },
+  "author": "Fernando Isidro <luffynando@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/nodecfdi/cfdi-core",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodecfdi/cfdi-core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nodecfdi/cfdi-core/issues"
+  },
+  "keywords": [
+    "cfdi",
+    "cfdiutils",
+    "elements",
+    "xml"
+  ],
+  "engines": {
+    "node": "^20 || ^19 || ^18 || ^16"
+  },
+  "browserslist": [
+    "defaults",
+    "not IE 11"
+  ],
+  "prettier": "@nodecfdi/prettier-config"
+}
