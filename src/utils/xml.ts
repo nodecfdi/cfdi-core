@@ -1,4 +1,4 @@
-import { getDomImplementation, getParser, isDocument, isElement } from '#src/dom';
+import { getDomImplementation, getParser, isDocument, isElement } from '../dom.js';
 
 export const documentElement = (document: Document): Element => {
   const rootElement = document.documentElement;

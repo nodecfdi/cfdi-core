@@ -1,5 +1,5 @@
-import type XmlAttributes from '#src/xml_nodes/xml_attributes';
-import type XmlNodes from '#src/xml_nodes/xml_nodes';
+import type XmlAttributes from './xml_nodes/xml_attributes.js';
+import type XmlNodes from './xml_nodes/xml_nodes.js';
 
 export interface XmlNodeInterface {
   addAttributes(attributes: Record<string, unknown>): void;

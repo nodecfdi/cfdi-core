@@ -1,5 +1,5 @@
-import { type XmlNodeInterface } from '#src/types';
-import { newDocument } from '#src/utils/xml';
+import { type XmlNodeInterface } from '../types.js';
+import { newDocument } from '../utils/xml.js';
 
 export default class XmlNodeExporter {
   public constructor(private readonly node: XmlNodeInterface) {}
