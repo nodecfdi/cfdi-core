@@ -48,6 +48,7 @@
     "@nodecfdi/prettier-config": "^1.1.1",
     "@nodecfdi/tsconfig": "^1.5.0",
     "@types/lodash.isequal": "^4.5.8",
+    "@types/node": "^20.12.7",
     "@vitest/coverage-istanbul": "^1.5.0",
     "conventional-changelog-cli": "^4.1.0",
     "del-cli": "^5.1.0",
