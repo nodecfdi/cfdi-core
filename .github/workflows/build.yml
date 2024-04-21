@@ -41,3 +41,35 @@ jobs:
           pnpm test:run
         env:
           CI: true
+
+  publish:
+    name: Check for publish
+    needs: ['quality_code', 'build']
+    if: github.event_name == 'push' && github.repository == 'nodecfdi/cfdi-core' && github.ref == 'refs/heads/main'
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: pnpm/action-setup@v3
+        with:
+          version: latest
+          run_install: true
+      - name: 'Consume changesets'
+        uses: changesets/action@v1
+        id: 'changesets'
+        with:
+          publish: pnpm release
+          commit: 'chore: :rocket: version bump'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Generate docs
+        if: steps.changesets.outputs.published == 'true'
+        run: pnpm gen:docs
+      - name: Commit docs
+        if: steps.changesets.outputs.published == 'true'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'docs: :memo: generate docs'

@@ -37,9 +37,11 @@
     "build": "tsup",
     "gen:docs": "del-cli docs && typedoc --options typedoc.json",
     "version": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s",
-    "postversion": "pnpm format && git add CHANGELOG.md"
+    "postversion": "pnpm format && git add CHANGELOG.md",
+    "release": "pnpm run build && pnpm changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.1",
     "@commitlint/cli": "^18.6.1",
     "@commitlint/config-conventional": "^18.6.3",
     "@nodecfdi/eslint-config": "^1.6.4",
