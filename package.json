@@ -82,7 +82,9 @@
     "cfdiutils",
     "elements",
     "xml",
-    "dom"
+    "dom",
+    "structure",
+    "node"
   ],
   "engines": {
     "node": "^21 || ^20 || ^19 || ^18 || ^16"
