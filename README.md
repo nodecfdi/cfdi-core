@@ -20,31 +20,13 @@
 
 ## Acerca de `@nodecfdi/cfdi-core`
 
-Librería que contiene las herramientas base para trabajar con CFDI's
+Librería que contiene las herramientas base para trabajar con CFDI's.
 
-## Instalación
-
-### NPM
-
-```bash
-npm i @nodecfdi/cfdi-core --save
-```
-
-### YARN
-
-```bash
-yarn add @nodecfdi/cfdi-core --save
-```
-
-### PNPM
-
-```bash
-pnpm add @nodecfdi/cfdi-core --save
-```
+Librería inspirada por la versión para php https://github.com/eclipxe13/CfdiUtils modularizada.
 
 ## Documentación
 
-La documentación está disponible en el [Sitio Web NodeCfdi](https://nodecfdi.com)
+La documentación está disponible en el sitio web [NodeCfdi](https://nodecfdi.com/librarys/cfdi-core/getting-started/)
 
 ## Soporte
 

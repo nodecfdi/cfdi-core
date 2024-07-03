@@ -25,7 +25,7 @@ export default class XmlNodesSorter {
   }
 
   public parseNames(names: unknown[]): string[] {
-    return [...new Set(names.filter((name) => this.isValidName(name)) as string[])];
+    return [...new Set(names.filter((name) => this.isValidName(name)))] as string[];
   }
 
   public getOrder(): string[] {
