@@ -3,27 +3,18 @@
   "version": "0.1.1",
   "description": "Librería que contiene las herramientas base para trabajar con CFDI's",
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
+  "main": "./dist/commonjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/commonjs/index.d.ts",
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.js"
-    },
-    "./types": {
-      "require": "./dist/types.cjs",
-      "import": "./dist/types.js"
-    }
-  },
+  "exports": {},
   "imports": {
     "#src/*": "./src/*.js",
     "#tests/*": "./tests/*.js"
   },
   "scripts": {
-    "clean": "del-cli dist",
     "prepare": "is-in-ci || husky",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --fix",
@@ -33,36 +24,39 @@
     "test": "vitest",
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "prebuild": "pnpm clean",
-    "build": "tsup",
-    "gen:docs": "del-cli docs && typedoc --options typedoc.json",
-    "version": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s",
-    "postversion": "pnpm format && git add CHANGELOG.md",
-    "release": "pnpm run build && pnpm changeset publish"
+    "gen:changelog": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -r 0",
+    "changelog": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s && git add CHANGELOG.md",
+    "prebuild": "pnpm lint:check",
+    "build": "tshy",
+    "postbuild": "pnpm run gen:docs && git add docs",
+    "release": "np",
+    "version": "pnpm run build && pnpm run changelog",
+    "prepublishOnly": "pnpm run build"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.27.7",
-    "@commitlint/cli": "^18.6.1",
-    "@commitlint/config-conventional": "^18.6.3",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "@jsprismarine/typedoc-material-theme": "^1.0.4",
     "@nodecfdi/eslint-config": "^1.7.1",
     "@nodecfdi/prettier-config": "^1.1.1",
     "@nodecfdi/tsconfig": "^1.5.0",
     "@types/lodash.isequal": "^4.5.8",
-    "@types/node": "^20.14.9",
-    "@vitest/coverage-istanbul": "^1.6.0",
+    "@types/node": "^20.14.10",
+    "@vitest/coverage-istanbul": "^2.0.1",
     "conventional-changelog-cli": "^5.0.0",
-    "del-cli": "^5.1.0",
+    "conventional-changelog-conventionalcommits": "^8.0.0",
     "eslint": "^8.57.0",
     "eslint-define-config": "^2.1.0",
     "husky": "^9.0.11",
     "is-in-ci": "^0.1.0",
     "jest-xml-matcher": "^1.2.0",
+    "np": "^10.0.6",
     "prettier": "^3.3.2",
+    "tshy": "^3.0.2",
     "tsup": "^8.1.0",
     "typedoc": "^0.26.3",
     "typescript": "^5.5.3",
-    "vitest": "^1.6.0"
+    "vitest": "^2.0.1"
   },
   "dependencies": {
     "@xmldom/xmldom": "^0.8.10",
@@ -94,6 +88,30 @@
     "defaults",
     "not IE 11"
   ],
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
   "prettier": "@nodecfdi/prettier-config",
-  "packageManager": "pnpm@9.4.0"
+  "packageManager": "pnpm@9.5.0",
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
+  "np": {
+    "message": "chore(release): :tada: %s",
+    "tag": "latest",
+    "branch": "main",
+    "anyBranch": false,
+    "testScript": "test:run"
+  },
+  "tshy": {
+    "selfLink": false,
+    "exports": {
+      ".": "./src/index.ts",
+      "./types": "./src/types.ts",
+      "./package.json": "./package.json"
+    }
+  }
 }
