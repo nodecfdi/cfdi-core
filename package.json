@@ -51,7 +51,7 @@
     "changelog": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s && git add CHANGELOG.md",
     "prebuild": "pnpm lint:check",
     "build": "tshy",
-    "postbuild": "pnpm run gen:docs && git add docs",
+    "postbuild": "pnpm run gen:docs && git add docs/*",
     "release": "np",
     "version": "pnpm run build && pnpm run changelog",
     "prepublishOnly": "pnpm run build"
