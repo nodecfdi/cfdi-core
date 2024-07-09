@@ -1,3 +1,8 @@
+## [0.3.0](https://github.com/nodecfdi/cfdi-core/compare/v0.2.0...v0.3.0) (2024-07-09)
+
+### Features
+
+* :sparkles: add method hasAttribute on xml node and xml node interface ([4c1297b](https://github.com/nodecfdi/cfdi-core/commit/4c1297be225ea8be360c2938adbb3d6bba9f8d5d))
 ## [0.2.0](https://github.com/nodecfdi/cfdi-core/compare/v0.1.1...v0.2.0) (2024-07-09)
 ## <small>0.1.1 (2024-07-03)</small>
 
