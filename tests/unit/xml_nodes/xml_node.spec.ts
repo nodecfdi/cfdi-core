@@ -164,4 +164,19 @@ describe('xml node', () => {
       i += 1;
     }
   });
+
+  test('alias for has of attributes', () => {
+    const node = new XmlNode('x');
+    node.setAttribute('id', 'form');
+    node.setAttribute('key', 'custom');
+
+    expect(node.hasAttribute('id')).toBeTruthy();
+    expect(node.hasAttribute('key')).toBeTruthy();
+
+    node.setAttribute('id', null);
+    expect(node.hasAttribute('id')).toBeFalsy();
+
+    node.setAttribute('key', undefined);
+    expect(node.hasAttribute('key')).toBeFalsy();
+  });
 });
