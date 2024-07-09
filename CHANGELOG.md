@@ -1,3 +1,4 @@
+## [0.2.0](https://github.com/nodecfdi/cfdi-core/compare/v0.1.1...v0.2.0) (2024-07-09)
 ## <small>0.1.1 (2024-07-03)</small>
 
 * chore: :arrow_up: update dependencies ([aab99fd](https://github.com/nodecfdi/cfdi-core/commit/aab99fd))
