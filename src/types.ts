@@ -7,6 +7,7 @@ export interface XmlNodeInterface {
   attributes(): XmlAttributes;
   setAttribute(name: string, value?: string | null): void;
   getAttribute(name: string): string;
+  hasAttribute(name: string): boolean;
   children(): XmlNodes;
   clear(): void;
   length: number;

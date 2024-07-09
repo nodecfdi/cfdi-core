@@ -50,6 +50,10 @@ export default class XmlNode implements XmlNodeInterface {
     return this._attributes;
   }
 
+  public hasAttribute(name: string): boolean {
+    return this._attributes.has(name);
+  }
+
   public setAttribute(name: string, value: string | null = null): void {
     this._attributes.set(name, value);
   }
