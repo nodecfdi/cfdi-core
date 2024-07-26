@@ -33,8 +33,7 @@
     "./package.json": "./package.json"
   },
   "imports": {
-    "#src/*": "./src/*.js",
-    "#tests/*": "./tests/*.js"
+    "#src/*": "./src/*.js"
   },
   "scripts": {
     "prepare": "is-in-ci || husky",
@@ -53,32 +52,31 @@
     "build": "tshy",
     "postbuild": "pnpm run gen:docs && git add docs/*",
     "release": "np",
-    "version": "pnpm run build && pnpm run changelog",
-    "prepublishOnly": "pnpm run build"
+    "version": "pnpm run build && pnpm run changelog"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@jsprismarine/typedoc-material-theme": "^1.0.4",
-    "@nodecfdi/eslint-config": "^1.7.1",
+    "@nodecfdi/eslint-config": "^1.9.1",
     "@nodecfdi/prettier-config": "^1.1.1",
     "@nodecfdi/tsconfig": "^1.5.0",
     "@types/lodash.isequal": "^4.5.8",
-    "@types/node": "^20.14.10",
-    "@vitest/coverage-istanbul": "^2.0.1",
+    "@types/node": "^20.14.12",
+    "@vitest/coverage-istanbul": "^2.0.4",
     "conventional-changelog-cli": "^5.0.0",
     "conventional-changelog-conventionalcommits": "^8.0.0",
     "eslint": "^8.57.0",
     "eslint-define-config": "^2.1.0",
-    "husky": "^9.0.11",
+    "husky": "^9.1.2",
     "is-in-ci": "^0.1.0",
     "jest-xml-matcher": "^1.2.0",
-    "np": "^10.0.6",
-    "prettier": "^3.3.2",
+    "np": "^10.0.7",
+    "prettier": "^3.3.3",
     "tshy": "^3.0.2",
-    "typedoc": "^0.26.3",
-    "typescript": "^5.5.3",
-    "vitest": "^2.0.1"
+    "typedoc": "^0.26.5",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.4"
   },
   "dependencies": {
     "@xmldom/xmldom": "^0.8.10",
@@ -116,7 +114,7 @@
     ]
   },
   "prettier": "@nodecfdi/prettier-config",
-  "packageManager": "pnpm@9.5.0",
+  "packageManager": "pnpm@9.6.0",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
