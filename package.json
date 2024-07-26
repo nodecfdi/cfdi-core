@@ -48,7 +48,7 @@
     "gen:docs": "typedoc --options typedoc.json",
     "gen:changelog": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -r 0",
     "changelog": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s && git add CHANGELOG.md",
-    "prebuild": "pnpm lint:check",
+    "prebuild": "pnpm lint:check && pnpm typecheck",
     "build": "tshy",
     "postbuild": "pnpm run gen:docs && git add docs/*",
     "release": "np",
