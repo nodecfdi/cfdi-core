@@ -1,7 +1,7 @@
-import { type XmlNodeInterface } from '../types.js';
-import { isValidXmlName } from '../utils/xml.js';
-import XmlAttributes from './xml_attributes.js';
-import XmlNodes from './xml_nodes.js';
+import { type XmlNodeInterface } from '#src/types';
+import { isValidXmlName } from '#src/utils/xml';
+import XmlAttributes from '#src/xml_nodes/xml_attributes';
+import XmlNodes from '#src/xml_nodes/xml_nodes';
 
 export default class XmlNode implements XmlNodeInterface {
   private readonly _name: string;

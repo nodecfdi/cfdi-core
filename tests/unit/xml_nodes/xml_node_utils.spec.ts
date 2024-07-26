@@ -9,7 +9,7 @@ import {
   nodeToXmlElement,
   nodeToXmlString,
 } from '#src/xml_nodes/xml_node_utils';
-import { filePath } from '#tests/test_utils';
+import { filePath } from '../../test_utils.js';
 
 describe('xml node utils', () => {
   test('node to xml string xml header', () => {

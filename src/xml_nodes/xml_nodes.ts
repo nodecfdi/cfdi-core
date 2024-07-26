@@ -1,5 +1,5 @@
-import { type XmlNodeInterface } from '../types.js';
-import XmlNodesSorter from './xml_nodes_sorter.js';
+import { type XmlNodeInterface } from '#src/types';
+import XmlNodesSorter from '#src/xml_nodes/xml_nodes_sorter';
 
 export default class XmlNodes extends Array<XmlNodeInterface> {
   private readonly _sorter: XmlNodesSorter;

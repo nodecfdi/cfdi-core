@@ -1,6 +1,6 @@
-import { isElement, isText } from '../dom.js';
-import { type XmlNodeInterface } from '../types.js';
-import XmlNode from './xml_node.js';
+import { isElement, isText } from '#src/dom';
+import { type XmlNodeInterface } from '#src/types';
+import XmlNode from '#src/xml_nodes/xml_node';
 
 export default class XmlNodeImporter {
   /**

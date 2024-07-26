@@ -1,4 +1,4 @@
-import { isValidXmlName } from '../utils/xml.js';
+import { isValidXmlName } from '#src/utils/xml';
 
 export default class XmlAttributes {
   private readonly _attributes = new Map<string, string>();

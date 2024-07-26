@@ -1,5 +1,5 @@
 import isEqual from 'lodash.isequal';
-import { type XmlNodeInterface } from '../types.js';
+import { type XmlNodeInterface } from '#src/types';
 
 export default class XmlNodesSorter {
   /** Record of key (string) value (number|int) representing the naming order. */
