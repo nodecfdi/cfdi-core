@@ -1,3 +1,12 @@
+## [0.4.0](https://github.com/nodecfdi/cfdi-core/compare/v0.3.1-0...v0.4.0) (2024-07-28)
+
+### Features
+
+* :sparkles: add number utility helpers ([cf302df](https://github.com/nodecfdi/cfdi-core/commit/cf302df361316bd6a679f607799c16a4a90ad1cc))
+
+### Bug Fixes
+
+* :bug: resolve problems reported by sonarcloud ([f73db27](https://github.com/nodecfdi/cfdi-core/commit/f73db277430f59e1508c7f99d275f5767e3837d3))
 ## [0.3.1-0](https://github.com/nodecfdi/cfdi-core/compare/v0.3.0...v0.3.1-0) (2024-07-26)
 ## [0.3.0](https://github.com/nodecfdi/cfdi-core/compare/v0.2.0...v0.3.0) (2024-07-09)
 
