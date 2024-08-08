@@ -1,7 +1,9 @@
-import { DOMImplementation, DOMParser, XMLSerializer } from '@xmldom/xmldom';
+import { DOMImplementation, DOMParser, onErrorStopParsing, XMLSerializer } from '@xmldom/xmldom';
 
 export const getParser = (): DOMParser => {
-  return new DOMParser();
+  return new DOMParser({
+    onError: onErrorStopParsing,
+  });
 };
 
 export const getSerializer = (): XMLSerializer => {
@@ -9,6 +11,7 @@ export const getSerializer = (): XMLSerializer => {
 };
 
 export const getDomImplementation = (): DOMImplementation => {
+  // @ts-expect-error for override DomImplementation
   return new DOMImplementation();
 };
 

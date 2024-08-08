@@ -1,3 +1,4 @@
+import { MIME_TYPE } from '@xmldom/xmldom';
 import { getDomImplementation, getParser, isDocument, isElement } from '#src/dom';
 
 export const documentElement = (document: Document): Element => {
@@ -25,7 +26,7 @@ export const ownerDocument = (node: Node): Document => {
 export const newDocument = (document?: Document): Document => {
   let temporalDocument: Document | undefined = document;
   if (!temporalDocument) {
-    temporalDocument = getDomImplementation().createDocument(null, null, null);
+    temporalDocument = getDomImplementation().createDocument(null, '', null);
   }
 
   return temporalDocument;
@@ -37,7 +38,7 @@ export const newDocumentContent = (content: string): Document => {
   }
 
   try {
-    const documentParse = getParser().parseFromString(content, 'text/xml');
+    const documentParse = getParser().parseFromString(content, MIME_TYPE.XML_TEXT);
 
     return newDocument(documentParse);
   } catch (error) {
