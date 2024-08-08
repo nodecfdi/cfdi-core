@@ -1,3 +1,8 @@
+## [0.4.1](https://github.com/nodecfdi/cfdi-core/compare/v0.4.0...v0.4.1) (2024-08-08)
+
+### Bug Fixes
+
+* :bug: resolve problem with bad declaration file on lib xmldom ([15ae0ad](https://github.com/nodecfdi/cfdi-core/commit/15ae0ad83ef6322c5a819db86e9be58d8d5fb2dd))
 ## [0.4.0](https://github.com/nodecfdi/cfdi-core/compare/v0.3.1-0...v0.4.0) (2024-07-28)
 
 ### Features
