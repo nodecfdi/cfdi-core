@@ -18,6 +18,14 @@ describe('number utils', () => {
     expect(formatNumber(0.005, 2)).toBe('0.01');
   });
 
+  test('format with 6 of precision', () => {
+    expect(formatNumber(1.2345664, 6)).toBe('1.234566');
+    expect(formatNumber(1.2345665, 6)).toBe('1.234567');
+    expect(formatNumber(1.2345674, 6)).toBe('1.234567');
+    expect(formatNumber(1.2345675, 6)).toBe('1.234568');
+    expect(formatNumber(1, 6)).toBe('1.000000');
+  });
+
   test('parseFloat works with NaN numbers', () => {
     expect(toFloat('')).toBe(0);
     expect(toFloat('0.0001')).toBe(0.0001);
