@@ -1,4 +1,3 @@
-// @ts-expect-error Bad declaration file export on xmldom
 import { DOMImplementation, DOMParser, onErrorStopParsing, XMLSerializer } from '@xmldom/xmldom';
 
 export const getParser = (): DOMParser => {
@@ -12,7 +11,6 @@ export const getSerializer = (): XMLSerializer => {
 };
 
 export const getDomImplementation = (): DOMImplementation => {
-  // @ts-expect-error for override DomImplementation
   return new DOMImplementation();
 };
 
