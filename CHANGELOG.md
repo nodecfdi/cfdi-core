@@ -1,3 +1,8 @@
+## [0.4.2](https://github.com/nodecfdi/cfdi-core/compare/v0.4.1...v0.4.2) (2024-08-12)
+
+### Bug Fixes
+
+* :bug: resolve bad generation of dom implementation in core ([f732904](https://github.com/nodecfdi/cfdi-core/commit/f732904c0462930e42a2e3d5f754c9a805458a6a))
 ## [0.4.1](https://github.com/nodecfdi/cfdi-core/compare/v0.4.0...v0.4.1) (2024-08-08)
 
 ### Bug Fixes
