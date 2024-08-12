@@ -1,3 +1,8 @@
+## [0.4.3](https://github.com/nodecfdi/cfdi-core/compare/v0.4.2...v0.4.3) (2024-08-12)
+
+### Bug Fixes
+
+* :bug: resolve problem with bad definition type using xmldom ([5b41f1f](https://github.com/nodecfdi/cfdi-core/commit/5b41f1f2b4f02769d3050c3bf9e1d39c5905501a))
 ## [0.4.2](https://github.com/nodecfdi/cfdi-core/compare/v0.4.1...v0.4.2) (2024-08-12)
 
 ### Bug Fixes
