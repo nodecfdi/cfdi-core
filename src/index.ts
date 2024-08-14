@@ -1,3 +1,4 @@
+export { MIME_TYPE, NAMESPACE } from '@xmldom/xmldom';
 export * from '#src/dom';
 export * from '#src/utils/number';
 export * from '#src/utils/xml';
