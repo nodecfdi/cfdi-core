@@ -1,3 +1,8 @@
+## [0.5.0](https://github.com/nodecfdi/cfdi-core/compare/v0.4.3...v0.5.0) (2024-08-14)
+
+### Performance Improvements
+
+* :sparkles: add shared enums from xmldom ([f5bf2e0](https://github.com/nodecfdi/cfdi-core/commit/f5bf2e0e977c1b1443a6c4633156f557a278af3e))
 ## [0.4.3](https://github.com/nodecfdi/cfdi-core/compare/v0.4.2...v0.4.3) (2024-08-12)
 
 ### Bug Fixes
