@@ -1,7 +1,7 @@
 {
   "name": "@nodecfdi/cfdi-core",
-  "version": "0.5.0",
   "description": "Librería que contiene las herramientas base para trabajar con CFDI's",
+  "version": "0.5.0",
   "type": "module",
   "main": "./dist/commonjs/index.js",
   "module": "./dist/esm/index.js",
@@ -46,8 +46,7 @@
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
     "gen:docs": "typedoc --options typedoc.json",
-    "gen:changelog": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -r 0",
-    "changelog": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s && git add CHANGELOG.md",
+    "changelog": "auto-changelog -p && git add CHANGELOG.md",
     "prebuild": "pnpm lint:check && pnpm typecheck",
     "build": "tshy",
     "postbuild": "pnpm run gen:docs && git add docs/*",
@@ -55,26 +54,24 @@
     "version": "pnpm run build && pnpm run changelog"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.4.0",
-    "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/cli": "^19.4.1",
+    "@commitlint/config-conventional": "^19.4.1",
     "@jsprismarine/typedoc-material-theme": "^1.0.4",
-    "@nodecfdi/eslint-config": "^1.9.3",
-    "@nodecfdi/prettier-config": "^1.1.1",
-    "@nodecfdi/tsconfig": "^1.5.0",
+    "@nodecfdi/eslint-config": "^2.0.1",
+    "@nodecfdi/prettier-config": "^1.2.0",
+    "@nodecfdi/tsconfig": "^1.7.2",
     "@types/lodash.isequal": "^4.5.8",
-    "@types/node": "^20.14.15",
+    "@types/node": "^20.16.4",
     "@vitest/coverage-istanbul": "^2.0.5",
-    "conventional-changelog-cli": "^5.0.0",
-    "conventional-changelog-conventionalcommits": "^8.0.0",
-    "eslint": "^8.57.0",
-    "eslint-define-config": "^2.1.0",
-    "husky": "^9.1.4",
+    "auto-changelog": "^2.4.0",
+    "eslint": "^9.9.1",
+    "husky": "^9.1.5",
     "is-in-ci": "^1.0.0",
     "jest-xml-matcher": "^1.2.0",
     "np": "^10.0.7",
     "prettier": "^3.3.3",
     "tshy": "^3.0.2",
-    "typedoc": "^0.26.5",
+    "typedoc": "^0.26.6",
     "typescript": "^5.5.4",
     "vitest": "^2.0.5"
   },
@@ -114,16 +111,19 @@
     ]
   },
   "prettier": "@nodecfdi/prettier-config",
-  "packageManager": "pnpm@9.7.1",
+  "packageManager": "pnpm@9.9.0",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
+  },
+  "auto-changelog": {
+    "template": "keepachangelog",
+    "hideCredit": true
   },
   "np": {
     "message": "chore(release): :tada: %s",
     "tag": "latest",
     "branch": "main",
-    "anyBranch": false,
     "testScript": "test:run"
   },
   "tshy": {
