@@ -1,3 +1,4 @@
+import { NAMESPACE } from '@xmldom/xmldom';
 import { isElement, isText } from '#src/dom';
 import { type XmlNodeInterface } from '#src/types';
 import XmlNode from '#src/xml_nodes/xml_node';
@@ -30,8 +31,8 @@ export default class XmlNodeImporter {
 
     // element is like <element namespace="uri"/>
     /* istanbul ignore if -- @preserve Hard of test */
-    if (element.hasAttributeNS('http://www.w3.org/2000/xmlns/', '')) {
-      node.setAttribute('xmlns', element.getAttributeNS('http://www.w3.org/2000/xmlns/', ''));
+    if (element.hasAttributeNS(NAMESPACE.XMLNS, '')) {
+      node.setAttribute('xmlns', element.getAttributeNS(NAMESPACE.XMLNS, ''));
     }
 
     // eslint-disable-next-line unicorn/prefer-spread
