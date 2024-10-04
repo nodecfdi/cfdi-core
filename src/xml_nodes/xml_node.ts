@@ -6,7 +6,7 @@ import XmlNodes from '#src/xml_nodes/xml_nodes';
 export default class XmlNode implements XmlNodeInterface {
   private readonly _name: string;
 
-  private _attributes: XmlAttributes;
+  private readonly _attributes: XmlAttributes;
 
   private readonly _children: XmlNodes;
 
