@@ -5,13 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v0.6.0](https://luffynando.github.com/nodecfdi/cfdi-core/compare/v0.5.1...v0.6.0)
+## [v0.6.1](https://luffynando.github.com/nodecfdi/cfdi-core/compare/v0.6.0...v0.6.1)
 
 ### Commits
 
+- refactor: :recycle: remove old doc generate files [`81c252d`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/81c252d7c1b99787bc50af0a274970255128ad82)
+- perf: :zap: remove unnecessary export package.json file [`af6403b`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/af6403b65c0caf962835f8f89417cf54e11fca16)
+- style: :rotating_light: resolve issue reported by sonarcloud for readonly property [`f676552`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/f6765526ef5b9dc471346e8c6c5eb129da4a6752)
+
+## [v0.6.0](https://luffynando.github.com/nodecfdi/cfdi-core/compare/v0.5.1...v0.6.0) - 2024-10-04
+
+### Commits
+
+- chore(release): :tada: 0.6.0 [`cf994bf`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/cf994bf909a42c4b9e8d380c52fcbc9deb74c8a8)
 - refactor: :recycle: remove browser dom types and usage types provider by xmldom for usage in node [`8abe386`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/8abe386cdb14cde11b4c60dbe3d814f0aca728b6)
 - chore: :arrow_up: update dependencies and usage latest xml-dom release [`7ca449c`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/7ca449ca24c3f84918c401f33bf44c0182563dea)
-- feat: :sparkles: add latest exports by xml-dom [`55a1c6d`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/55a1c6db38812fbcdeb0e275d7290858f4ac3ad8)
 
 ## [v0.5.1](https://luffynando.github.com/nodecfdi/cfdi-core/compare/v0.5.0...v0.5.1) - 2024-09-04
 
