@@ -1,4 +1,4 @@
-import { MIME_TYPE } from '@xmldom/xmldom';
+import { type Document, type Element, MIME_TYPE, type Node } from '@xmldom/xmldom';
 import { getDomImplementation, getParser, isDocument, isElement } from '#src/dom';
 
 export const documentElement = (document: Document): Element => {
@@ -68,9 +68,7 @@ export const createDomElement = (
   }
 
   if (!element || !isElement(element)) {
-    throw new TypeError(
-      `${errorMessage} on ${previousException ? previousException.message : 'not is element'}`,
-    );
+    throw new TypeError(`${errorMessage} on ${previousException?.message}`);
   }
 
   if (content !== '') {

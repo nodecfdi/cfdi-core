@@ -1,3 +1,4 @@
+import { type Document, type Element } from '@xmldom/xmldom';
 import { type XmlNodeInterface } from '#src/types';
 import { newDocument } from '#src/utils/xml';
 

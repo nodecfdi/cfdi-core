@@ -1,4 +1,11 @@
-import { DOMImplementation, DOMParser, XMLSerializer } from '@xmldom/xmldom';
+import {
+  type Attr,
+  type Document,
+  DOMImplementation,
+  DOMParser,
+  type Element,
+  XMLSerializer,
+} from '@xmldom/xmldom';
 import {
   getDomImplementation,
   getParser,

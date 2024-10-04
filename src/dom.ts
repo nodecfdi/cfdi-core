@@ -1,4 +1,14 @@
-import { DOMImplementation, DOMParser, onErrorStopParsing, XMLSerializer } from '@xmldom/xmldom';
+import {
+  type Attr,
+  type Document,
+  DOMImplementation,
+  DOMParser,
+  type Element,
+  type Node,
+  onErrorStopParsing,
+  type Text,
+  XMLSerializer,
+} from '@xmldom/xmldom';
 
 export const getParser = (): DOMParser => {
   return new DOMParser({
@@ -14,13 +24,15 @@ export const getDomImplementation = (): DOMImplementation => {
   return new DOMImplementation();
 };
 
-export const isNode = (nodo: unknown): nodo is Node => {
+export const isNode = (nodo: unknown): nodo is Node & { nodeType: number } => {
   return (
     typeof nodo === 'object' &&
     nodo !== null &&
     'nodeType' in nodo &&
     'nodeName' in nodo &&
     typeof nodo.nodeType === 'number' &&
+    nodo.nodeType >= 1 &&
+    nodo.nodeType <= 11 &&
     typeof nodo.nodeName === 'string'
   );
 };

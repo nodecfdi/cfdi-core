@@ -41,7 +41,7 @@ describe('xml node utils', () => {
     const xmlString = nodeToXmlString(node);
 
     // Compare versus source
-    const xmlSave = getSerializer().serializeToString(element.ownerDocument);
+    const xmlSave = getSerializer().serializeToString(element.ownerDocument!);
 
     expect(xmlSave).toEqualXML(source);
     expect(xmlString).toEqualXML(source);

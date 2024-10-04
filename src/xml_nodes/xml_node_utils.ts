@@ -1,3 +1,4 @@
+import { type Element } from '@xmldom/xmldom';
 import { getSerializer } from '#src/dom';
 import { type XmlNodeInterface } from '#src/types';
 import { documentElement, newDocumentContent } from '#src/utils/xml';
@@ -10,15 +11,15 @@ export const nodeToXmlElement = (node: XmlNodeInterface): Element => {
 
 export const nodeToXmlString = (node: XmlNodeInterface, withXmlHeader = false): string => {
   const element = nodeToXmlElement(node);
+  const document = element.ownerDocument!;
   if (withXmlHeader) {
-    const document = element.ownerDocument;
     const pi = document.createProcessingInstruction('xml', 'version="1.0" encoding="UTF-8"');
     document.insertBefore(pi, document.firstChild);
 
     return getSerializer().serializeToString(document);
   }
 
-  return getSerializer().serializeToString(element.ownerDocument);
+  return getSerializer().serializeToString(document);
 };
 
 export const nodeFromXmlElement = (element: Element): XmlNodeInterface => {

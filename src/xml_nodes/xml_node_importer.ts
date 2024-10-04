@@ -1,4 +1,4 @@
-import { NAMESPACE } from '@xmldom/xmldom';
+import { type Element, NAMESPACE } from '@xmldom/xmldom';
 import { isElement, isText } from '#src/dom';
 import { type XmlNodeInterface } from '#src/types';
 import XmlNode from '#src/xml_nodes/xml_node';
@@ -24,8 +24,7 @@ export default class XmlNodeImporter {
       this.registerNamespace(node, 'xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
     }
 
-    // eslint-disable-next-line unicorn/prefer-spread
-    for (const attribute of Array.from(element.attributes)) {
+    for (const attribute of element.attributes) {
       node.setAttribute(attribute.nodeName, attribute.nodeValue);
     }
 
@@ -35,8 +34,7 @@ export default class XmlNodeImporter {
       node.setAttribute('xmlns', element.getAttributeNS(NAMESPACE.XMLNS, ''));
     }
 
-    // eslint-disable-next-line unicorn/prefer-spread
-    for (const childElement of Array.from(element.childNodes)) {
+    for (const childElement of element.childNodes) {
       if (!isElement(childElement)) {
         continue;
       }
@@ -60,8 +58,7 @@ export default class XmlNodeImporter {
   private extractValue(element: Element): string {
     const values: string[] = [];
 
-    // eslint-disable-next-line unicorn/prefer-spread
-    for (const children of Array.from(element.childNodes)) {
+    for (const children of element.childNodes) {
       if (!isText(children)) {
         continue;
       }
