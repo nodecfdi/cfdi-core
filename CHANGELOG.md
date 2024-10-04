@@ -5,10 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v0.5.1](https://luffynando.github.com/nodecfdi/cfdi-core/compare/v0.5.0...v0.5.1)
+## [v0.6.0](https://luffynando.github.com/nodecfdi/cfdi-core/compare/v0.5.1...v0.6.0)
 
 ### Commits
 
+- refactor: :recycle: remove browser dom types and usage types provider by xmldom for usage in node [`8abe386`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/8abe386cdb14cde11b4c60dbe3d814f0aca728b6)
+- chore: :arrow_up: update dependencies and usage latest xml-dom release [`7ca449c`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/7ca449ca24c3f84918c401f33bf44c0182563dea)
+- feat: :sparkles: add latest exports by xml-dom [`55a1c6d`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/55a1c6db38812fbcdeb0e275d7290858f4ac3ad8)
+
+## [v0.5.1](https://luffynando.github.com/nodecfdi/cfdi-core/compare/v0.5.0...v0.5.1) - 2024-09-04
+
+### Commits
+
+- chore(release): :tada: 0.5.1 [`de36aaf`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/de36aafd2ccf79624472c03fb6d6ed51dd020535)
 - chore: :arrow_up: update dependencies, add support to eslint 9 and update changelog tool generator [`527cec7`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/527cec76f9fa9f693b9b9ffab3091d5a00036b3d)
 - refactor: :recycle: apply refactor for usage xmlns namespace enum on xmlnode importe [`8c3de81`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/8c3de81f9cf6543425bd7b5dec4d9bc7cc5da070)
 
