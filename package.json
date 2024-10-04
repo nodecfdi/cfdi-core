@@ -54,29 +54,29 @@
     "version": "pnpm run build && pnpm run changelog"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.4.1",
-    "@commitlint/config-conventional": "^19.4.1",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
     "@jsprismarine/typedoc-material-theme": "^1.0.4",
-    "@nodecfdi/eslint-config": "^2.0.1",
+    "@nodecfdi/eslint-config": "^2.0.6",
     "@nodecfdi/prettier-config": "^1.2.0",
     "@nodecfdi/tsconfig": "^1.7.2",
     "@types/lodash.isequal": "^4.5.8",
-    "@types/node": "^20.16.4",
-    "@vitest/coverage-istanbul": "^2.0.5",
-    "auto-changelog": "^2.4.0",
-    "eslint": "^9.9.1",
-    "husky": "^9.1.5",
+    "@types/node": "^20.16.10",
+    "@vitest/coverage-istanbul": "^2.1.2",
+    "auto-changelog": "^2.5.0",
+    "eslint": "^9.12.0",
+    "husky": "^9.1.6",
     "is-in-ci": "^1.0.0",
     "jest-xml-matcher": "^1.2.0",
     "np": "^10.0.7",
     "prettier": "^3.3.3",
     "tshy": "^3.0.2",
-    "typedoc": "^0.26.6",
-    "typescript": "^5.5.4",
-    "vitest": "^2.0.5"
+    "typedoc": "^0.26.8",
+    "typescript": "^5.6.2",
+    "vitest": "^2.1.2"
   },
   "dependencies": {
-    "@xmldom/xmldom": "0.9.0-beta.11",
+    "@xmldom/xmldom": "^0.9.3",
     "lodash.isequal": "^4.5.0"
   },
   "author": "Fernando Isidro <luffynando@gmail.com>",
@@ -111,7 +111,7 @@
     ]
   },
   "prettier": "@nodecfdi/prettier-config",
-  "packageManager": "pnpm@9.9.0",
+  "packageManager": "pnpm@9.12.0",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
