@@ -145,7 +145,7 @@ describe('xml attributes', () => {
     expect(attributes.has('foo')).toBeTruthy();
     expect(attributes.has('bar')).toBeTruthy();
     attributes.set('foo', null);
-    attributes.set('bar', undefined);
+    attributes.set('bar');
     expect(attributes.has('foo')).toBeFalsy();
     expect(attributes.has('bar')).toBeFalsy();
   });
@@ -177,7 +177,7 @@ describe('xml attributes', () => {
     expect(attributes.has('offsetSet')).toBeFalsy();
     expect(attributes).toHaveLength(1);
 
-    attributes.set('offsetGet', undefined);
+    attributes.set('offsetGet');
     expect(attributes.has('offsetGet')).toBeFalsy();
     expect(attributes).toHaveLength(0);
   });

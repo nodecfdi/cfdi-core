@@ -105,7 +105,7 @@ describe('xml node', () => {
     expect(node.attributes().has('id')).toBeFalsy();
     expect(node.getAttribute('id')).toBe('');
 
-    node.setAttribute('key', undefined);
+    node.setAttribute('key');
     expect(node.attributes().has('key')).toBeFalsy();
     expect(node.getAttribute('key')).toBe('');
   });
@@ -176,7 +176,7 @@ describe('xml node', () => {
     node.setAttribute('id', null);
     expect(node.hasAttribute('id')).toBeFalsy();
 
-    node.setAttribute('key', undefined);
+    node.setAttribute('key');
     expect(node.hasAttribute('key')).toBeFalsy();
   });
 });
