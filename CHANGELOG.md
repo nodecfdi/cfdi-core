@@ -5,13 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v0.6.1](https://luffynando.github.com/nodecfdi/cfdi-core/compare/v0.6.0...v0.6.1)
+## [v0.6.2](https://luffynando.github.com/nodecfdi/cfdi-core/compare/v0.6.1...v0.6.2)
+
+### Commits
+
+- chore: :arrow_up: update dependencies [`4d6e4eb`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/4d6e4ebc4a5e59fb9199af5143c47328d707f122)
+- style: :rotating_light: enable sonarjs in eslint and resolve all issues reported by eslint [`e36e9a6`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/e36e9a6e46e6abb20e6ea01ed6b17ae517537aa8)
+
+## [v0.6.1](https://luffynando.github.com/nodecfdi/cfdi-core/compare/v0.6.0...v0.6.1) - 2024-10-04
 
 ### Commits
 
 - refactor: :recycle: remove old doc generate files [`81c252d`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/81c252d7c1b99787bc50af0a274970255128ad82)
+- chore(release): :tada: 0.6.1 [`ae3b891`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/ae3b891cff748e84b9a030697b204b8749522242)
 - perf: :zap: remove unnecessary export package.json file [`af6403b`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/af6403b65c0caf962835f8f89417cf54e11fca16)
-- style: :rotating_light: resolve issue reported by sonarcloud for readonly property [`f676552`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/f6765526ef5b9dc471346e8c6c5eb129da4a6752)
 
 ## [v0.6.0](https://luffynando.github.com/nodecfdi/cfdi-core/compare/v0.5.1...v0.6.0) - 2024-10-04
 
