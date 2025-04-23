@@ -1,5 +1,5 @@
 import { type Element, NAMESPACE } from '@xmldom/xmldom';
-import { isElement, isText } from '#src/dom';
+import { isCDataSection, isElement, isText } from '#src/dom';
 import { type XmlNodeInterface } from '#src/types';
 import XmlNode from '#src/xml_nodes/xml_node';
 
@@ -18,6 +18,7 @@ export default class XmlNodeImporter {
   private importRecursive(element: Element): XmlNodeInterface {
     const node = new XmlNode(element.tagName);
     node.setValue(this.extractValue(element));
+    node.setCData(this.extractCData(element));
 
     if (element.prefix && element.prefix !== '') {
       this.registerNamespace(node, `xmlns:${element.prefix}`, element.namespaceURI!);
@@ -60,6 +61,20 @@ export default class XmlNodeImporter {
 
     for (const children of element.childNodes) {
       if (!isText(children)) {
+        continue;
+      }
+
+      values.push(children.data);
+    }
+
+    return values.join('');
+  }
+
+  private extractCData(element: Element): string {
+    const values: string[] = [];
+
+    for (const children of element.childNodes) {
+      if (!isCDataSection(children)) {
         continue;
       }
 

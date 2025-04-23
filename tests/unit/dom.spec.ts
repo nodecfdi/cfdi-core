@@ -11,6 +11,7 @@ import {
   getParser,
   getSerializer,
   isAttribute,
+  isCDataSection,
   isDocument,
   isElement,
   isText,
@@ -59,5 +60,14 @@ describe('dom', () => {
 
     const textNode = document.createTextNode('first');
     expect(isText(textNode)).toBeTruthy();
+  });
+
+  test('is cdata section', () => {
+    expect(isCDataSection(document)).toBeFalsy();
+    expect(isCDataSection(element)).toBeFalsy();
+    expect(isCDataSection(attribute)).toBeFalsy();
+
+    const cdataNode = document.createCDATASection('<root>first</root>');
+    expect(isCDataSection(cdataNode)).toBeTruthy();
   });
 });

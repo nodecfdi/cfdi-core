@@ -29,7 +29,7 @@ describe('number utils', () => {
   test('parseFloat works with NaN numbers', () => {
     expect(toFloat('')).toBe(0);
     expect(toFloat('0.0001')).toBe(0.0001);
-    expect(toFloat('1.0')).toBe(1);
+    expect(toFloat('a')).toBe(0);
   });
 
   test('round works with negative numbers', () => {

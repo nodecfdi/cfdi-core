@@ -12,11 +12,14 @@ export default class XmlNode implements XmlNodeInterface {
 
   private _value: string;
 
+  private _cdata: string;
+
   public constructor(
     name: string,
     attributes: Record<string, unknown> = {},
     children: XmlNodeInterface[] = [],
     value = '',
+    cdata = '',
   ) {
     if (!isValidXmlName(name)) {
       throw new SyntaxError(`Cannot create a node with an invalid xml name: ${name}`);
@@ -26,6 +29,7 @@ export default class XmlNode implements XmlNodeInterface {
     this._attributes = new XmlAttributes(attributes);
     this._children = new XmlNodes(children);
     this._value = value;
+    this._cdata = cdata;
   }
 
   public get length(): number {
@@ -99,7 +103,6 @@ export default class XmlNode implements XmlNodeInterface {
   }
 
   public searchNode(...searchPath: string[]): XmlNodeInterface | undefined {
-    // eslint-disable-next-line unicorn/no-this-assignment, @typescript-eslint/no-this-alias
     let self: XmlNodeInterface | undefined = this;
 
     for (const searchName of searchPath) {
@@ -118,6 +121,14 @@ export default class XmlNode implements XmlNodeInterface {
 
   public setValue(value: string): void {
     this._value = value;
+  }
+
+  public cdata(): string {
+    return this._cdata;
+  }
+
+  public setCData(cdata: string): void {
+    this._cdata = cdata;
   }
 
   public [Symbol.iterator](): IterableIterator<XmlNodeInterface> {

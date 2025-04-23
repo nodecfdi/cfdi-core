@@ -121,6 +121,17 @@ describe('xml node', () => {
     expect(node.value()).toBe('second');
   });
 
+  test('cdata property', () => {
+    const node = new XmlNode('x');
+
+    node.setCData('<root>first</root>');
+
+    expect(node.cdata()).toBe('<root>first</root>');
+    node.setCData('<root>second</root>');
+
+    expect(node.cdata()).toBe('<root>second</root>');
+  });
+
   test('add children', () => {
     const node = new XmlNode('x');
     const childrenNode = new XmlNode('y');

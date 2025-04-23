@@ -17,5 +17,7 @@ export interface XmlNodeInterface {
   searchNodes(...searchPath: string[]): XmlNodes;
   setValue(value: string): void;
   value(): string;
+  cdata(): string;
+  setCData(cdata: string): void;
   [Symbol.iterator](): IterableIterator<XmlNodeInterface>;
 }

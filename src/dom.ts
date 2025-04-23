@@ -1,5 +1,6 @@
 import {
   type Attr,
+  type CDATASection,
   type Document,
   DOMImplementation,
   DOMParser,
@@ -51,4 +52,8 @@ export const isText = (nodo: unknown): nodo is Text => {
 
 export const isDocument = (nodo: unknown): nodo is Document => {
   return isNode(nodo) && nodo.nodeType === 9;
+};
+
+export const isCDataSection = (nodo: unknown): nodo is CDATASection => {
+  return isNode(nodo) && nodo.nodeType === 4;
 };

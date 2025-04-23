@@ -28,6 +28,7 @@ describe('xml node utils', () => {
   test.each([
     ['simple xml', filePath('nodes/sample.xml')],
     ['with texts xml', filePath('nodes/sample-with-texts.xml')],
+    ['with cdata xml', filePath('nodes/sample-with-cdata.xml')],
     ['cfdi', filePath('cfdi33.xml')],
   ])('export from file and export again %s', (_name, filename) => {
     const source = readFileSync(filename, 'utf8');

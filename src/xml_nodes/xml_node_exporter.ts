@@ -29,6 +29,10 @@ export default class XmlNodeExporter {
       element.appendChild(document.createTextNode(node.value()));
     }
 
+    if (node.cdata() !== '') {
+      element.appendChild(document.createCDATASection(node.cdata()));
+    }
+
     return element;
   }
 }
