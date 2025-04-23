@@ -1,5 +1,6 @@
 export {
   Attr,
+  CDATASection,
   Document,
   DOMImplementation,
   DOMParser,
