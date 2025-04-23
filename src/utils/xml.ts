@@ -24,10 +24,7 @@ export const ownerDocument = (node: Node): Document => {
 };
 
 export const newDocument = (document?: Document): Document => {
-  let temporalDocument: Document | undefined = document;
-  if (!temporalDocument) {
-    temporalDocument = getDomImplementation().createDocument(null, '', null);
-  }
+  const temporalDocument = document ?? getDomImplementation().createDocument(null, '', null);
 
   return temporalDocument;
 };

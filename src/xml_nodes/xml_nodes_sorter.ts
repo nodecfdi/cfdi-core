@@ -1,11 +1,10 @@
-import isEqual from 'lodash.isequal';
 import { type XmlNodeInterface } from '#src/types';
 
 export default class XmlNodesSorter {
   /** Record of key (string) value (number|int) representing the naming order. */
   private _order: Record<string, number> = {};
 
-  private declare _length: number;
+  declare private _length: number;
 
   public constructor(order: string[] = []) {
     this.setOrder(order);
@@ -14,7 +13,7 @@ export default class XmlNodesSorter {
   public setOrder(names: string[]): boolean {
     const order = Object.fromEntries(this.parseNames(names).map((entry, index) => [entry, index]));
 
-    if (isEqual(this._order, order)) {
+    if (JSON.stringify(this._order) === JSON.stringify(order)) {
       return false;
     }
 

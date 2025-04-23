@@ -92,7 +92,6 @@ describe('xml util', () => {
     const rawXml = getSerializer().serializeToString(document);
 
     // Fixed self-closing tags to full closing tags
-    // eslint-disable-next-line regexp/no-super-linear-backtracking
     const fixedXml = rawXml.replaceAll(/<(.*?)\s*\/>/g, '<$1></$1>');
     expect(fixedXml).toBe(`<${elementName}>${expected}</${elementName}>`);
   });

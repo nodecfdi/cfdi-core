@@ -102,7 +102,6 @@ export default class XmlAttributes {
     }
 
     if (typeof value === 'object' && !Array.isArray(value)) {
-      // eslint-disable-next-line @typescript-eslint/no-base-to-string
       return value.toString();
     }
 
