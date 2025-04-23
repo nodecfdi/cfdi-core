@@ -5,10 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v0.6.2](https://luffynando.github.com/nodecfdi/cfdi-core/compare/v0.6.1...v0.6.2)
+## [v1.0.0](https://luffynando.github.com/nodecfdi/cfdi-core/compare/v0.6.2...v1.0.0)
 
 ### Commits
 
+- docs: :memo:  - change generation of docs using github theme [`bb35251`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/bb3525116379be498d9b172b1b17d2ffaa812eb4)
+- build: :construction:  - update build for usage tsup and replace index on root [`d09c7a5`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/d09c7a54a3fcb64296c813ab5aa31b56300661cf)
+- feat: :sparkles:  - add support to cdata section element [`347aaf1`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/347aaf148c625eb55874e5640565d48297ba00b3)
+
+## [v0.6.2](https://luffynando.github.com/nodecfdi/cfdi-core/compare/v0.6.1...v0.6.2) - 2024-10-14
+
+### Commits
+
+- chore(release): :tada: 0.6.2 [`d8e2270`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/d8e2270a3d79418d5f38f7ab52b369c48edb1ae9)
 - chore: :arrow_up: update dependencies [`4d6e4eb`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/4d6e4ebc4a5e59fb9199af5143c47328d707f122)
 - style: :rotating_light: enable sonarjs in eslint and resolve all issues reported by eslint [`e36e9a6`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/e36e9a6e46e6abb20e6ea01ed6b17ae517537aa8)
 

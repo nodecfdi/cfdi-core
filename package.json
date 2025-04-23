@@ -1,7 +1,7 @@
 {
   "name": "@nodecfdi/cfdi-core",
   "description": "Librería que contiene las herramientas base para trabajar con CFDI's",
-  "version": "0.6.2",
+  "version": "1.0.0",
   "type": "module",
   "module": "./build/index.js",
   "types": "./build/index.d.ts",
