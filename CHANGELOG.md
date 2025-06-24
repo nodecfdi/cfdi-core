@@ -5,13 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v1.0.0](https://luffynando.github.com/nodecfdi/cfdi-core/compare/v0.6.2...v1.0.0)
+## [v1.0.1](https://luffynando.github.com/nodecfdi/cfdi-core/compare/v1.0.0...v1.0.1)
+
+### Commits
+
+- chore: :arrow_up: update dependencies [`d548a5d`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/d548a5dab2d0a5ee5cf70939d5692a89b4adbeac)
+- style: :rotating_light: resolve issues reported by eslint and prettier [`b7a6277`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/b7a62772b2a46e1dd85fa5d72433ed5770d34027)
+- docs: :memo:  - update readme with legend only esm [`286227d`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/286227dc60a3853ce1286e357eaf89d847d35ebf)
+
+## [v1.0.0](https://luffynando.github.com/nodecfdi/cfdi-core/compare/v0.6.2...v1.0.0) - 2025-04-23
 
 ### Commits
 
 - docs: :memo:  - change generation of docs using github theme [`bb35251`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/bb3525116379be498d9b172b1b17d2ffaa812eb4)
+- chore(release): :tada: 1.0.0 [`2c02751`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/2c02751dbc68403da03d0e9452b77a31850b6692)
 - build: :construction:  - update build for usage tsup and replace index on root [`d09c7a5`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/d09c7a54a3fcb64296c813ab5aa31b56300661cf)
-- feat: :sparkles:  - add support to cdata section element [`347aaf1`](https://luffynando.github.com/nodecfdi/cfdi-core/commit/347aaf148c625eb55874e5640565d48297ba00b3)
 
 ## [v0.6.2](https://luffynando.github.com/nodecfdi/cfdi-core/compare/v0.6.1...v0.6.2) - 2024-10-14
 
