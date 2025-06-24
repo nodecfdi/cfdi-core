@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unassigned-import
 import 'jest-xml-matcher';
 import { readFileSync } from 'node:fs';
 import { getSerializer } from '#src/dom';

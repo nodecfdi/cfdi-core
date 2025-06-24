@@ -42,7 +42,7 @@ export default class XmlNodes extends Array<XmlNodeInterface> {
   }
 
   public clear(): this {
-    this.splice(0, this.length);
+    this.splice(0);
 
     return this;
   }
