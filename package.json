@@ -37,26 +37,26 @@
     "version": "pnpm run build && pnpm run changelog"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.0",
-    "@commitlint/config-conventional": "^19.8.0",
-    "@nodecfdi/eslint-config": "^3.2.0",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@nodecfdi/eslint-config": "^3.4.0",
     "@nodecfdi/prettier-config": "^1.4.1",
     "@nodecfdi/tsconfig": "^1.7.4",
-    "@types/node": "^22.14.1",
-    "@vitest/coverage-istanbul": "^3.1.2",
+    "@types/node": "^22.15.32",
+    "@vitest/coverage-istanbul": "^3.2.4",
     "auto-changelog": "^2.5.0",
     "del-cli": "^6.0.0",
-    "eslint": "^9.25.1",
+    "eslint": "^9.29.0",
     "husky": "^9.1.7",
     "is-in-ci": "^1.0.0",
     "jest-xml-matcher": "^1.2.0",
     "np": "^10.2.0",
-    "prettier": "^3.5.3",
-    "tsup": "^8.4.0",
-    "typedoc": "^0.28.3",
+    "prettier": "^3.6.0",
+    "tsup": "^8.5.0",
+    "typedoc": "^0.28.5",
     "typedoc-github-theme": "^0.3.0",
     "typescript": "^5.8.3",
-    "vitest": "^3.1.2"
+    "vitest": "^3.2.4"
   },
   "dependencies": {
     "@xmldom/xmldom": "^0.9.8"
@@ -93,7 +93,13 @@
     ]
   },
   "prettier": "@nodecfdi/prettier-config",
-  "packageManager": "pnpm@10.9.0",
+  "packageManager": "pnpm@10.12.2",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "unrs-resolver"
+    ]
+  },
   "publishConfig": {
     "access": "public",
     "tag": "latest"
