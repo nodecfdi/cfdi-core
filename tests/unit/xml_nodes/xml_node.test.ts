@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest';
 import XmlNode from '../../../src/xml_nodes/xml_node';
 
 describe('xml node', () => {

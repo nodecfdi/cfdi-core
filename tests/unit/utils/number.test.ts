@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest';
 import { formatNumber, roundNumber, toFloat } from '../../../src/utils/number';
 
 describe('number utils', () => {

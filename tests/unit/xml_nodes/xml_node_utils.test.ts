@@ -1,6 +1,8 @@
 // eslint-disable-next-line import/no-unassigned-import
 import 'jest-xml-matcher';
 import { readFileSync } from 'node:fs';
+import { describe, expect, test } from 'vitest';
+import { filePath } from '../../../test_helpers/test_utils';
 import { getSerializer } from '../../../src/dom';
 import { documentElement, newDocumentContent } from '../../../src/utils/xml';
 import XmlNode from '../../../src/xml_nodes/xml_node';
@@ -10,7 +12,6 @@ import {
   nodeToXmlElement,
   nodeToXmlString,
 } from '../../../src/xml_nodes/xml_node_utils';
-import { filePath } from '../../test_utils.js';
 
 describe('xml node utils', () => {
   test('node to xml string xml header', () => {

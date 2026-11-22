@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, test } from 'vitest';
 import {
   type Attr,
   type Document,

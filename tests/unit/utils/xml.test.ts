@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest';
 import { getDomImplementation, getSerializer } from '../../../src/dom';
 import {
   createElement,

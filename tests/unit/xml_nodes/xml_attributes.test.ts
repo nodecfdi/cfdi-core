@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest';
 import XmlAttributes from '../../../src/xml_nodes/xml_attributes';
 
 describe('xml attributes', () => {
