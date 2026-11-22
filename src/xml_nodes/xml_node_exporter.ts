@@ -1,5 +1,5 @@
-import { type Document, type Element } from '@xmldom/xmldom';
-import { type XmlNodeInterface } from '../types';
+import type { Document, Element } from '@xmldom/xmldom';
+import type { XmlNodeInterface } from '../types';
 import { newDocument } from '../utils/xml';
 
 export default class XmlNodeExporter {

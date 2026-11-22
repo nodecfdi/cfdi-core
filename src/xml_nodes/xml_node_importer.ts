@@ -1,6 +1,7 @@
-import { type Element, NAMESPACE } from '@xmldom/xmldom';
+import type { Element } from '@xmldom/xmldom';
+import type { XmlNodeInterface } from '../types';
+import { NAMESPACE } from '@xmldom/xmldom';
 import { isCDataSection, isElement, isText } from '../dom';
-import { type XmlNodeInterface } from '../types';
 import XmlNode from './xml_node';
 
 export default class XmlNodeImporter {
@@ -48,7 +49,7 @@ export default class XmlNodeImporter {
   }
 
   private registerNamespace(node: XmlNode, prefix: string, uri: string): void {
-    if (this.registeredNamespaces[prefix]) {
+    if (Object.hasOwn(this.registeredNamespaces, prefix)) {
       return;
     }
 

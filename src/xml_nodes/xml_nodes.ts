@@ -1,4 +1,4 @@
-import { type XmlNodeInterface } from '../types';
+import type { XmlNodeInterface } from '../types';
 import XmlNodesSorter from './xml_nodes_sorter';
 
 export default class XmlNodes extends Array<XmlNodeInterface> {
@@ -10,18 +10,16 @@ export default class XmlNodes extends Array<XmlNodeInterface> {
     this.importFromArray(nodes);
   }
 
-  public static get [Symbol.species](): ArrayConstructor {
-    return Array;
-  }
-
   public add(...nodes: XmlNodeInterface[]): this {
     let somethingChange = false;
 
     for (const node of nodes) {
-      if (!this.has(node)) {
-        this.push(node);
-        somethingChange = true;
+      if (this.has(node)) {
+        continue;
       }
+
+      this.push(node);
+      somethingChange = true;
     }
 
     if (somethingChange) {
@@ -101,9 +99,9 @@ export default class XmlNodes extends Array<XmlNodeInterface> {
   public importFromArray(nodes: XmlNodeInterface[]): this {
     for (const [index, node] of nodes.entries()) {
       if (
-        typeof node.searchNodes !== 'function' ||
-        typeof node.children !== 'function' ||
-        typeof node.name !== 'function'
+        typeof node.searchNodes !== 'function'
+        || typeof node.children !== 'function'
+        || typeof node.name !== 'function'
       ) {
         throw new SyntaxError(`The element index ${index} is not a XmlNodeInterface object`);
       }
@@ -112,5 +110,9 @@ export default class XmlNodes extends Array<XmlNodeInterface> {
     this.add(...nodes);
 
     return this;
+  }
+
+  public static get [Symbol.species](): ArrayConstructor {
+    return Array;
   }
 }

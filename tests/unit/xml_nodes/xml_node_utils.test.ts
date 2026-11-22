@@ -1,8 +1,5 @@
-// eslint-disable-next-line import/no-unassigned-import
-import 'jest-xml-matcher';
 import { readFileSync } from 'node:fs';
 import { describe, expect, test } from 'vitest';
-import { filePath } from '../../../test_helpers/test_utils';
 import { getSerializer } from '../../../src/dom';
 import { documentElement, newDocumentContent } from '../../../src/utils/xml';
 import XmlNode from '../../../src/xml_nodes/xml_node';
@@ -12,6 +9,8 @@ import {
   nodeToXmlElement,
   nodeToXmlString,
 } from '../../../src/xml_nodes/xml_node_utils';
+import { filePath } from '../../../test_helpers/test_utils';
+import 'jest-xml-matcher';
 
 describe('xml node utils', () => {
   test('node to xml string xml header', () => {
@@ -70,7 +69,7 @@ describe('xml node utils', () => {
       throw new Error('The specimen does not have the required test case');
     }
 
-    expect(inspected.getAttribute('xmlns')).toBe('http://external.com/inner');
+    expect(inspected.getAttribute('xmlns')).toBe('https://external.com/inner');
   });
 
   test('xml with value with special chars', () => {

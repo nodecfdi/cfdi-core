@@ -1,6 +1,6 @@
-import { type Element } from '@xmldom/xmldom';
+import type { Element } from '@xmldom/xmldom';
+import type { XmlNodeInterface } from '../types';
 import { getSerializer } from '../dom';
-import { type XmlNodeInterface } from '../types';
 import { documentElement, newDocumentContent } from '../utils/xml';
 import XmlNodeExporter from './xml_node_exporter';
 import XmlNodeImporter from './xml_node_importer';

@@ -1,4 +1,4 @@
-import { type XmlNodeInterface } from '../types';
+import type { XmlNodeInterface } from '../types';
 import { isValidXmlName } from '../utils/xml';
 import XmlAttributes from './xml_attributes';
 import XmlNodes from './xml_nodes';
@@ -103,16 +103,17 @@ export default class XmlNode implements XmlNodeInterface {
   }
 
   public searchNode(...searchPath: string[]): XmlNodeInterface | undefined {
-    let self: XmlNodeInterface | undefined = this;
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
+    let node: XmlNodeInterface | undefined = this;
 
     for (const searchName of searchPath) {
-      self = self.children().firstNodeWithName(searchName);
-      if (!self) {
+      node = node.children().firstNodeWithName(searchName);
+      if (!node) {
         break;
       }
     }
 
-    return self;
+    return node;
   }
 
   public value(): string {

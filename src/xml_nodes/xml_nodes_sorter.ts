@@ -1,7 +1,9 @@
-import { type XmlNodeInterface } from '../types';
+import type { XmlNodeInterface } from '../types';
 
 export default class XmlNodesSorter {
-  /** Record of key (string) value (number|int) representing the naming order. */
+  /**
+  Record of key (string) value (number|int) representing the naming order.
+   */
   private _order: Record<string, number> = {};
 
   declare private _length: number;
@@ -69,7 +71,7 @@ export default class XmlNodesSorter {
       item: value,
     }));
 
-    list = list.sort((first, second) => {
+    list = list.toSorted((first, second) => {
       let value = callable(first.item, second.item);
 
       if (value === 0) {

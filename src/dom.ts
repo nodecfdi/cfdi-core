@@ -1,13 +1,11 @@
+import type { Attr, CDATASection, Document, Element, Node, Text } from '@xmldom/xmldom';
 import {
-  type Attr,
-  type CDATASection,
-  type Document,
+
   DOMImplementation,
   DOMParser,
-  type Element,
-  type Node,
+
   onErrorStopParsing,
-  type Text,
+
   XMLSerializer,
 } from '@xmldom/xmldom';
 
@@ -27,14 +25,14 @@ export const getDomImplementation = (): DOMImplementation => {
 
 export const isNode = (nodo: unknown): nodo is Node & { nodeType: number } => {
   return (
-    typeof nodo === 'object' &&
-    nodo !== null &&
-    'nodeType' in nodo &&
-    'nodeName' in nodo &&
-    typeof nodo.nodeType === 'number' &&
-    nodo.nodeType >= 1 &&
-    nodo.nodeType <= 11 &&
-    typeof nodo.nodeName === 'string'
+    typeof nodo === 'object'
+    && nodo !== null
+    && 'nodeType' in nodo
+    && 'nodeName' in nodo
+    && typeof nodo.nodeType === 'number'
+    && nodo.nodeType >= 1
+    && nodo.nodeType <= 11
+    && typeof nodo.nodeName === 'string'
   );
 };
 

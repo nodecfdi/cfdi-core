@@ -1,12 +1,12 @@
-import { beforeEach, describe, expect, test } from 'vitest';
+import type { Attr, Document, Element } from '@xmldom/xmldom';
 import {
-  type Attr,
-  type Document,
+
   DOMImplementation,
   DOMParser,
-  type Element,
+
   XMLSerializer,
 } from '@xmldom/xmldom';
+import { beforeEach, describe, expect, test } from 'vitest';
 import {
   getDomImplementation,
   getParser,

@@ -1,5 +1,5 @@
+import type { XmlNodeInterface } from '../../../src/types';
 import { describe, expect, test } from 'vitest';
-import { type XmlNodeInterface } from '../../../src/types';
 import XmlNode from '../../../src/xml_nodes/xml_node';
 import XmlNodes from '../../../src/xml_nodes/xml_nodes';
 

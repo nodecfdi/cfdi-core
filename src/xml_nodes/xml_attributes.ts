@@ -1,6 +1,8 @@
 import { isValidXmlName } from '../utils/xml';
 
 export default class XmlAttributes {
+  public readonly [Symbol.toStringTag] = 'XmlAttributes';
+
   private readonly _attributes = new Map<string, string>();
 
   public constructor(attributes: Record<string, unknown> = {}) {
@@ -30,7 +32,7 @@ export default class XmlAttributes {
       throw new SyntaxError(`Cannot set attribute with an invalid xml name: ${name}`);
     }
 
-    this._attributes.set(name, value.toString());
+    this._attributes.set(name, value);
 
     return this;
   }
@@ -59,7 +61,7 @@ export default class XmlAttributes {
   }
 
   public export(): Record<string, string> {
-    return Object.fromEntries(this._attributes.entries());
+    return Object.fromEntries(this._attributes);
   }
 
   public exportMap(): Map<string, string> {
@@ -70,7 +72,6 @@ export default class XmlAttributes {
     callbackFn: (value: string, key: string, map: Map<string, string>) => void,
     thisArgument?: unknown,
   ): void {
-    // eslint-disable-next-line unicorn/no-array-for-each, unicorn/no-array-callback-reference, unicorn/no-array-method-this-argument
     this._attributes.forEach(callbackFn, thisArgument);
   }
 
@@ -90,15 +91,13 @@ export default class XmlAttributes {
     return this._attributes[Symbol.iterator]();
   }
 
-  public readonly [Symbol.toStringTag] = 'XmlAttributes';
-
   private castValueToString(key: string, value: unknown): string | null {
     if (value === null || value === undefined) {
       return null;
     }
 
     if (/boolean|number|string/u.test(typeof value)) {
-      return `${value as boolean | number | string}`;
+      return String(value);
     }
 
     if (typeof value === 'object' && !Array.isArray(value)) {

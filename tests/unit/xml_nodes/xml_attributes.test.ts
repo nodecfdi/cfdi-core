@@ -117,8 +117,6 @@ describe('xml attributes', () => {
     };
     const created: Record<string, string> = {};
     const attributes = new XmlAttributes(data);
-
-    // eslint-disable-next-line unicorn/no-array-for-each
     attributes.forEach((value, key) => {
       created[key] = value;
     });
@@ -133,7 +131,9 @@ describe('xml attributes', () => {
     };
     const attributes = new XmlAttributes(data);
 
+    // eslint-disable-next-line unicorn/prefer-iterator-to-array
     expect([...attributes.keys()]).toStrictEqual(Object.keys(data));
+    // eslint-disable-next-line unicorn/prefer-iterator-to-array
     expect([...attributes.values()]).toStrictEqual(Object.values(data));
   });
 
@@ -195,7 +195,7 @@ describe('xml attributes', () => {
   test('set with object to string', () => {
     const expectedValue = 'foo';
 
-    // eslint-disable-next-line func-style, unicorn/consistent-function-scoping
+    // eslint-disable-next-line unicorn/consistent-function-scoping
     function Foo(this: { value: string }, value: string): void {
       this.value = value;
     }
