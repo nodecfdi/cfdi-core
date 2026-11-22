@@ -10,7 +10,6 @@ import {
   nodeToXmlString,
 } from '../../../src/xml_nodes/xml_node_utils';
 import { filePath } from '../../../test_helpers/test_utils';
-import 'jest-xml-matcher';
 
 describe('xml node utils', () => {
   test('node to xml string xml header', () => {
@@ -69,7 +68,8 @@ describe('xml node utils', () => {
       throw new Error('The specimen does not have the required test case');
     }
 
-    expect(inspected.getAttribute('xmlns')).toBe('https://external.com/inner');
+    // eslint-disable-next-line unicorn/prefer-https
+    expect(inspected.getAttribute('xmlns')).toBe('http://external.com/inner');
   });
 
   test('xml with value with special chars', () => {

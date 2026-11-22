@@ -21,7 +21,7 @@ export default class XmlAttributes {
     return this._attributes.get(name) ?? '';
   }
 
-  public set(name: string, value: string | null = null): this {
+  public set(name: string, value: string | { toString: () => string } | null = null): this {
     if (value === null) {
       this.delete(name);
 
@@ -32,7 +32,7 @@ export default class XmlAttributes {
       throw new SyntaxError(`Cannot set attribute with an invalid xml name: ${name}`);
     }
 
-    this._attributes.set(name, value);
+    this._attributes.set(name, value.toString());
 
     return this;
   }
