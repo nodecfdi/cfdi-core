@@ -1,5 +1,5 @@
-import XmlNode from '#src/xml_nodes/xml_node';
-import XmlNodesSorter from '#src/xml_nodes/xml_nodes_sorter';
+import XmlNode from '../../../src/xml_nodes/xml_node';
+import XmlNodesSorter from '../../../src/xml_nodes/xml_nodes_sorter';
 
 describe('xml nodes sorter', () => {
   test('construct with names', () => {

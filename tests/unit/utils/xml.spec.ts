@@ -1,4 +1,4 @@
-import { getDomImplementation, getSerializer } from '#src/dom';
+import { getDomImplementation, getSerializer } from '../../../src/dom';
 import {
   createElement,
   documentElement,
@@ -6,7 +6,7 @@ import {
   newDocument,
   newDocumentContent,
   ownerDocument,
-} from '#src/utils/xml';
+} from '../../../src/utils/xml';
 
 describe('xml util', () => {
   test.each([['First_Name'], ['_4-lane'], ['tél'], ['month-day']])(

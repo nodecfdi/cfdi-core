@@ -1,6 +1,6 @@
 import { type Document, type Element } from '@xmldom/xmldom';
-import { type XmlNodeInterface } from '#src/types';
-import { newDocument } from '#src/utils/xml';
+import { type XmlNodeInterface } from '../types';
+import { newDocument } from '../utils/xml';
 
 export default class XmlNodeExporter {
   public constructor(private readonly node: XmlNodeInterface) {}

@@ -1,6 +1,6 @@
-import { type XmlNodeInterface } from '#src/types';
-import XmlNode from '#src/xml_nodes/xml_node';
-import XmlNodes from '#src/xml_nodes/xml_nodes';
+import { type XmlNodeInterface } from '../../../src/types';
+import XmlNode from '../../../src/xml_nodes/xml_node';
+import XmlNodes from '../../../src/xml_nodes/xml_nodes';
 
 describe('xml nodes', () => {
   test('empty nodes', () => {

@@ -1,7 +1,7 @@
-import { type XmlNodeInterface } from '#src/types';
-import { isValidXmlName } from '#src/utils/xml';
-import XmlAttributes from '#src/xml_nodes/xml_attributes';
-import XmlNodes from '#src/xml_nodes/xml_nodes';
+import { type XmlNodeInterface } from '../types';
+import { isValidXmlName } from '../utils/xml';
+import XmlAttributes from './xml_attributes';
+import XmlNodes from './xml_nodes';
 
 export default class XmlNode implements XmlNodeInterface {
   private readonly _name: string;

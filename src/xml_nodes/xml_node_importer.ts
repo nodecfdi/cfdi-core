@@ -1,7 +1,7 @@
 import { type Element, NAMESPACE } from '@xmldom/xmldom';
-import { isCDataSection, isElement, isText } from '#src/dom';
-import { type XmlNodeInterface } from '#src/types';
-import XmlNode from '#src/xml_nodes/xml_node';
+import { isCDataSection, isElement, isText } from '../dom';
+import { type XmlNodeInterface } from '../types';
+import XmlNode from './xml_node';
 
 export default class XmlNodeImporter {
   /**

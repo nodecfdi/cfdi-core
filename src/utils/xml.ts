@@ -1,5 +1,5 @@
 import { type Document, type Element, MIME_TYPE, type Node } from '@xmldom/xmldom';
-import { getDomImplementation, getParser, isDocument, isElement } from '#src/dom';
+import { getDomImplementation, getParser, isDocument, isElement } from '../dom';
 
 export const documentElement = (document: Document): Element => {
   const rootElement = document.documentElement;

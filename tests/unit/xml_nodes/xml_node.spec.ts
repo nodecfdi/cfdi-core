@@ -1,4 +1,4 @@
-import XmlNode from '#src/xml_nodes/xml_node';
+import XmlNode from '../../../src/xml_nodes/xml_node';
 
 describe('xml node', () => {
   test('construct without arguments', () => {

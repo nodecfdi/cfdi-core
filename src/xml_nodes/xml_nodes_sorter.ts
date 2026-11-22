@@ -1,4 +1,4 @@
-import { type XmlNodeInterface } from '#src/types';
+import { type XmlNodeInterface } from '../types';
 
 export default class XmlNodesSorter {
   /** Record of key (string) value (number|int) representing the naming order. */

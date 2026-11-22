@@ -1,9 +1,9 @@
 import { type Element } from '@xmldom/xmldom';
-import { getSerializer } from '#src/dom';
-import { type XmlNodeInterface } from '#src/types';
-import { documentElement, newDocumentContent } from '#src/utils/xml';
-import XmlNodeExporter from '#src/xml_nodes/xml_node_exporter';
-import XmlNodeImporter from '#src/xml_nodes/xml_node_importer';
+import { getSerializer } from '../dom';
+import { type XmlNodeInterface } from '../types';
+import { documentElement, newDocumentContent } from '../utils/xml';
+import XmlNodeExporter from './xml_node_exporter';
+import XmlNodeImporter from './xml_node_importer';
 
 export const nodeToXmlElement = (node: XmlNodeInterface): Element => {
   return new XmlNodeExporter(node).export();

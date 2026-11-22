@@ -1,4 +1,4 @@
-import { formatNumber, roundNumber, toFloat } from '#src/utils/number';
+import { formatNumber, roundNumber, toFloat } from '../../../src/utils/number';
 
 describe('number utils', () => {
   test('format floating point with another decimal different of 5', () => {

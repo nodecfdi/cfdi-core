@@ -1,4 +1,4 @@
-import XmlAttributes from '#src/xml_nodes/xml_attributes';
+import XmlAttributes from '../../../src/xml_nodes/xml_attributes';
 
 describe('xml attributes', () => {
   test('construct without arguments', () => {

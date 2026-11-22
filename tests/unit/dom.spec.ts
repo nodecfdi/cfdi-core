@@ -15,7 +15,7 @@ import {
   isDocument,
   isElement,
   isText,
-} from '#src/dom';
+} from '../../src/dom';
 
 describe('dom', () => {
   let document: Document;
