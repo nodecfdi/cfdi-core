@@ -1,48 +1,9 @@
 {
   "name": "@nodecfdi/cfdi-core",
-  "description": "Librería que contiene las herramientas base para trabajar con CFDI's",
-  "version": "1.0.1",
   "type": "module",
-  "files": [
-    "dist"
-  ],
-  "exports": {
-    ".": "./dist/index.js",
-    "./types": "./dist/src/types.js"
-  },
-  "imports": {
-    "#src/*": "./src/*.js"
-  },
-  "scripts": {
-    "prepare": "is-in-ci || husky",
-    "changelog": "auto-changelog -u -p",
-    "commitlint": "commitlint --edit",
-    "lint": "eslint . --fix",
-    "lint:check": "eslint .",
-    "typecheck": "tsc --noEmit",
-    "test": "vitest",
-    "test:run": "vitest run",
-    "test:coverage": "vitest run --coverage",
-    "tool:code": "pnpm run lint:check && pnpm run typecheck",
-    "tool:build": "pnpm run tool:code && pnpm run test:run",
-    "build": "tsdown",
-    "release": "release-it"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
-    "@types/node": "^22.15.32",
-    "@vitest/coverage-istanbul": "^3.2.4",
-    "auto-changelog": "^2.5.0",
-    "husky": "^9.1.7",
-    "is-in-ci": "^1.0.0",
-    "jest-xml-matcher": "^1.2.0",
-    "typescript": "^5.8.3",
-    "vitest": "^3.2.4"
-  },
-  "dependencies": {
-    "@xmldom/xmldom": "^0.9.8"
-  },
+  "version": "1.0.1",
+  "packageManager": "pnpm@12.21.0",
+  "description": "Librería que contiene las herramientas base para trabajar con CFDI's",
   "author": "Fernando Isidro <luffynando@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/nodecfdi/cfdi-core",
@@ -62,19 +23,63 @@
     "structure",
     "node"
   ],
+  "imports": {
+    "#src/*": "./src/*.js"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./types": "./dist/src/types.js"
+  },
+  "files": [
+    "dist"
+  ],
   "engines": {
     "node": "^22.13.0 || ^24 || ^26"
   },
-  "browserslist": [
-    "defaults",
-    "not IE 11"
-  ],
+  "scripts": {
+    "prepare": "is-in-ci || husky",
+    "changelog": "auto-changelog -u -p",
+    "commitlint": "commitlint --edit",
+    "lint": "eslint . --fix",
+    "lint:check": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "tool:code": "pnpm run lint:check && pnpm run typecheck",
+    "tool:build": "pnpm run tool:code && pnpm run test:run",
+    "build": "tsdown",
+    "release": "release-it"
+  },
+  "dependencies": {
+    "@xmldom/xmldom": "^0.9.12"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.4",
+    "@commitlint/config-conventional": "^21.2.4",
+    "@eienjs/eslint-config": "^2.3.2",
+    "@types/node": "^26.6.6",
+    "@vitest/coverage-istanbul": "^5.1.1",
+    "auto-changelog": "^2.7.0",
+    "eslint": "^10.15.0",
+    "eslint-plugin-erasable-syntax-only": "^0.7.2",
+    "husky": "^9.1.7",
+    "is-in-ci": "^2.0.0",
+    "jest-xml-matcher": "^1.2.0",
+    "release-it": "^21.1.2",
+    "tsdown": "^0.23.7",
+    "typescript": "^6.0.3",
+    "vitest": "^5.1.1"
+  },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
     ]
   },
-  "packageManager": "pnpm@12.21.0",
+  "browserslist": [
+    "defaults",
+    "not IE 11"
+  ],
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -83,5 +88,38 @@
     "template": "keepachangelog",
     "hideCredit": true,
     "commitLimit": false
+  },
+  "release-it": {
+    "git": {
+      "commit": true,
+      "tag": true,
+      "push": true,
+      "requireCleanWorkingDir": true,
+      "commitMessage": "chore(release): :tada: v${version}",
+      "tagAnnotation": "chore(release): :tada: v${version}"
+    },
+    "github": {
+      "release": true,
+      "web": true,
+      "releaseName": "Release v${version}"
+    },
+    "npm": {
+      "publish": true,
+      "publishPackageManager": "pnpm",
+      "publishArgs": [
+        "--no-git-checks"
+      ]
+    },
+    "hooks": {
+      "before:init": [
+        "pnpm run lint:check",
+        "pnpm run typecheck",
+        "pnpm test:run"
+      ],
+      "after:bump": [
+        "pnpm run build",
+        "pnpm run changelog"
+      ]
+    }
   }
 }
