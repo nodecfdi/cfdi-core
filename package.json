@@ -81,7 +81,7 @@
     "node"
   ],
   "engines": {
-    "node": ">=18"
+    "node": "^22.13.0 || ^24 || ^26"
   },
   "browserslist": [
     "defaults",
@@ -93,7 +93,7 @@
     ]
   },
   "prettier": "@nodecfdi/prettier-config",
-  "packageManager": "pnpm@10.12.2",
+  "packageManager": "pnpm@12.21.0",
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild",
