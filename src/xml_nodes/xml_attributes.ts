@@ -1,11 +1,12 @@
+import type { AttributeName, AttributesRecord } from '../types';
 import { isValidXmlName } from '../utils/xml';
 
-export default class XmlAttributes {
+export default class XmlAttributes<TAttributes extends string = string> {
   public readonly [Symbol.toStringTag] = 'XmlAttributes';
 
   private readonly _attributes = new Map<string, string>();
 
-  public constructor(attributes: Record<string, unknown> = {}) {
+  public constructor(attributes: AttributesRecord<TAttributes> = {}) {
     this.import(attributes);
   }
 
@@ -17,11 +18,14 @@ export default class XmlAttributes {
     return this._attributes.size;
   }
 
-  public get(name: string): string {
+  public get(name: AttributeName<TAttributes>): string {
     return this._attributes.get(name) ?? '';
   }
 
-  public set(name: string, value: string | { toString: () => string } | null = null): this {
+  public set(
+    name: AttributeName<TAttributes>,
+    value: string | { toString: () => string } | null = null,
+  ): this {
     if (value === null) {
       this.delete(name);
 
@@ -37,7 +41,7 @@ export default class XmlAttributes {
     return this;
   }
 
-  public delete(name: string): boolean {
+  public delete(name: AttributeName<TAttributes>): boolean {
     return this._attributes.delete(name);
   }
 
@@ -47,11 +51,11 @@ export default class XmlAttributes {
     return this;
   }
 
-  public has(name: string): boolean {
+  public has(name: AttributeName<TAttributes>): boolean {
     return this._attributes.has(name);
   }
 
-  public import(attributes: Record<string, unknown>): this {
+  public import(attributes: AttributesRecord<TAttributes>): this {
     for (const [key, value] of Object.entries(attributes)) {
       const fixedValue = this.castValueToString(key, value);
       this.set(key, fixedValue);

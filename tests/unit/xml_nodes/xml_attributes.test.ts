@@ -1,4 +1,5 @@
-import { describe, expect, test } from 'vitest';
+import type { AttributeName, AttributesRecord } from '../../../src/types';
+import { describe, expect, expectTypeOf, test } from 'vitest';
 import XmlAttributes from '../../../src/xml_nodes/xml_attributes';
 
 describe('xml attributes', () => {
@@ -233,5 +234,39 @@ describe('xml attributes', () => {
     });
 
     expect(attributes.exportMap()).toBeInstanceOf(Map);
+  });
+
+  test('typed attributes preserve autocomplete and allow arbitrary strings', () => {
+    type KnownAttrs = 'Version' | 'Serie' | 'Folio';
+
+    const attributes = new XmlAttributes<KnownAttrs>({
+      Version: '4.0',
+      CustomAttr: 'custom',
+    });
+
+    attributes.set('Serie', 'A');
+    attributes.set('AnotherCustom', 'value');
+
+    expect(attributes.has('Version')).toBeTruthy();
+    expect(attributes.get('Serie')).toBe('A');
+    expect(attributes.get('AnotherCustom')).toBe('value');
+    expect(attributes.delete('AnotherCustom')).toBeTruthy();
+
+    expectTypeOf<XmlAttributes<KnownAttrs>['get']>()
+      .parameter(0)
+      .toEqualTypeOf<AttributeName<KnownAttrs>>();
+    expectTypeOf<XmlAttributes<KnownAttrs>['set']>()
+      .parameter(0)
+      .toEqualTypeOf<AttributeName<KnownAttrs>>();
+    expectTypeOf<XmlAttributes<KnownAttrs>['delete']>()
+      .parameter(0)
+      .toEqualTypeOf<AttributeName<KnownAttrs>>();
+    expectTypeOf<XmlAttributes<KnownAttrs>['has']>()
+      .parameter(0)
+      .toEqualTypeOf<AttributeName<KnownAttrs>>();
+    expectTypeOf<XmlAttributes<KnownAttrs>['import']>()
+      .parameter(0)
+      .toEqualTypeOf<AttributesRecord<KnownAttrs>>();
+    expectTypeOf(attributes).toExtend<XmlAttributes>();
   });
 });

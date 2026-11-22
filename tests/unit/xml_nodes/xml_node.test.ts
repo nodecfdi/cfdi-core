@@ -1,4 +1,5 @@
-import { describe, expect, test } from 'vitest';
+import type { AttributeName, AttributesRecord, XmlNodeInterface } from '../../../src/types';
+import { describe, expect, expectTypeOf, test } from 'vitest';
 import XmlNode from '../../../src/xml_nodes/xml_node';
 
 describe('xml node', () => {
@@ -190,5 +191,44 @@ describe('xml node', () => {
 
     node.setAttribute('key');
     expect(node.hasAttribute('key')).toBeFalsy();
+  });
+
+  test('typed xml node preserves attribute autocomplete and remains assignable to XmlNodeInterface', () => {
+    type ComprobanteAttrs = 'Version' | 'Serie' | 'Folio';
+
+    const node = new XmlNode<ComprobanteAttrs>('cfdi:Comprobante', {
+      Version: '4.0',
+      Custom: '1',
+    });
+
+    node.setAttribute('Serie', 'A');
+    node.setAttribute('Extra', '2');
+    node.addAttributes({ Folio: '100', Otro: '3' });
+
+    expect(node.hasAttribute('Version')).toBeTruthy();
+    expect(node.getAttribute('Serie')).toBe('A');
+    expect(node.getAttribute('Folio')).toBe('100');
+    expect(node.attributes().get('Extra')).toBe('2');
+
+    const parent = new XmlNode('root');
+    parent.addChild(node);
+    expect(parent).toHaveLength(1);
+
+    expectTypeOf<XmlNode<ComprobanteAttrs>['getAttribute']>()
+      .parameter(0)
+      .toEqualTypeOf<AttributeName<ComprobanteAttrs>>();
+    expectTypeOf<XmlNode<ComprobanteAttrs>['setAttribute']>()
+      .parameter(0)
+      .toEqualTypeOf<AttributeName<ComprobanteAttrs>>();
+    expectTypeOf<XmlNode<ComprobanteAttrs>['hasAttribute']>()
+      .parameter(0)
+      .toEqualTypeOf<AttributeName<ComprobanteAttrs>>();
+    expectTypeOf<XmlNode<ComprobanteAttrs>['addAttributes']>()
+      .parameter(0)
+      .toEqualTypeOf<AttributesRecord<ComprobanteAttrs>>();
+    expectTypeOf<ReturnType<XmlNode<ComprobanteAttrs>['attributes']>['get']>()
+      .parameter(0)
+      .toEqualTypeOf<AttributeName<ComprobanteAttrs>>();
+    expectTypeOf(node).toExtend<XmlNodeInterface>();
   });
 });

@@ -1,12 +1,12 @@
-import type { XmlNodeInterface } from '../types';
+import type { AttributeName, AttributesRecord, XmlNodeInterface } from '../types';
 import { isValidXmlName } from '../utils/xml';
 import XmlAttributes from './xml_attributes';
 import XmlNodes from './xml_nodes';
 
-export default class XmlNode implements XmlNodeInterface {
+export default class XmlNode<TAttributes extends string = string> implements XmlNodeInterface<TAttributes> {
   private readonly _name: string;
 
-  private readonly _attributes: XmlAttributes;
+  private readonly _attributes: XmlAttributes<TAttributes>;
 
   private readonly _children: XmlNodes;
 
@@ -16,7 +16,7 @@ export default class XmlNode implements XmlNodeInterface {
 
   public constructor(
     name: string,
-    attributes: Record<string, unknown> = {},
+    attributes: AttributesRecord<TAttributes> = {},
     children: XmlNodeInterface[] = [],
     value = '',
     cdata = '',
@@ -26,7 +26,7 @@ export default class XmlNode implements XmlNodeInterface {
     }
 
     this._name = name;
-    this._attributes = new XmlAttributes(attributes);
+    this._attributes = new XmlAttributes<TAttributes>(attributes);
     this._children = new XmlNodes(children);
     this._value = value;
     this._cdata = cdata;
@@ -50,23 +50,23 @@ export default class XmlNode implements XmlNodeInterface {
     return node;
   }
 
-  public attributes(): XmlAttributes {
+  public attributes(): XmlAttributes<TAttributes> {
     return this._attributes;
   }
 
-  public hasAttribute(name: string): boolean {
+  public hasAttribute(name: AttributeName<TAttributes>): boolean {
     return this._attributes.has(name);
   }
 
-  public setAttribute(name: string, value: string | null = null): void {
+  public setAttribute(name: AttributeName<TAttributes>, value: string | null = null): void {
     this._attributes.set(name, value);
   }
 
-  public getAttribute(name: string): string {
+  public getAttribute(name: AttributeName<TAttributes>): string {
     return this._attributes.get(name);
   }
 
-  public addAttributes(attributes: Record<string, unknown>): void {
+  public addAttributes(attributes: AttributesRecord<TAttributes>): void {
     this._attributes.import(attributes);
   }
 
