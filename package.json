@@ -119,5 +119,11 @@
         "pnpm run changelog"
       ]
     }
+  },
+  "nodecfdi": {
+    "title": "CFDI Core",
+    "icon": "i-tabler-atom-2",
+    "category": "cfdi",
+    "featured": true
   }
 }

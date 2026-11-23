@@ -24,6 +24,70 @@ Librería que contiene las herramientas base para trabajar con CFDI's.
 
 Librería inspirada por la versión para php https://github.com/eclipxe13/CfdiUtils modularizada.
 
+## Inicio Rápido
+
+### Instalación
+
+```bash
+# pnpm
+pnpm add @nodecfdi/cfdi-core
+
+# npm
+npm install @nodecfdi/cfdi-core
+
+# yarn
+yarn add @nodecfdi/cfdi-core
+
+# bun
+bun add @nodecfdi/cfdi-core
+```
+
+### Uso principal (Node.js / ESM)
+
+```ts
+import {
+  CfdiVersion,
+  nodeFromXmlString,
+  nodeToXmlString,
+  XmlNode,
+} from '@nodecfdi/cfdi-core';
+
+// Crear un nodo XML y agregar hijos
+const comprobante = new XmlNode('cfdi:Comprobante', {
+  Version: '4.0',
+  Serie: 'A',
+  Folio: '100',
+});
+comprobante.addChild(
+  new XmlNode('cfdi:Emisor', {
+    Rfc: 'EKU9003173C9',
+    Nombre: 'ESCUELA KEMPER URGATE',
+    RegimenFiscal: '601',
+  }),
+);
+
+// Exportar a XML
+const xml = nodeToXmlString(comprobante, true);
+
+// Importar desde XML y descubrir la versión de CFDI
+const root = nodeFromXmlString(xml);
+const version = new CfdiVersion().getFromNode(root);
+console.log(version); // '4.0'
+```
+
+### Uso en navegador (IIFE)
+
+```html
+<script src="https://unpkg.com/@nodecfdi/cfdi-core/dist/index.iife.js"></script>
+<script>
+  const { XmlNode, nodeToXmlString, CfdiVersion } = window.ncCfdiCore;
+
+  const node = new XmlNode('cfdi:Comprobante', { Version: '4.0' });
+  console.log(new CfdiVersion().getFromNode(node)); // '4.0'
+  console.log(nodeToXmlString(node));
+</script>
+```
+
 ## Documentación
 
 La documentación está disponible en el sitio web [NodeCfdi](https://nodecfdi.com/packages/cfdi-core/getting-started/)
