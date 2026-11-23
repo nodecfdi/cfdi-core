@@ -8,4 +8,10 @@ export default eienjs({
       parameterProperties: false,
     },
   },
+  unicorn: {
+    overrides: {
+      // Note: Disable for xml schema http urls
+      'unicorn/prefer-https': 'off',
+    },
+  },
 });

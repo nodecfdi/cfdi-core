@@ -24,6 +24,7 @@ const formatNode = (node: Node, indent: number): string => {
   if (node.nodeType === NODE_ELEMENT) {
     const element = node as Element;
     const attrs = [...element.attributes]
+      .toSorted((a, b) => a.name.localeCompare(b.name))
       .map((attr) => ` ${attr.name}="${escapeXmlAttr(attr.value)}"`)
       .join('');
 

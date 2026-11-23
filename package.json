@@ -50,7 +50,8 @@
     "release": "release-it"
   },
   "dependencies": {
-    "@xmldom/xmldom": "^0.9.12"
+    "@xmldom/xmldom": "^0.9.12",
+    "decimal.js": "^10.6.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.4",

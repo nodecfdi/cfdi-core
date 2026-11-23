@@ -68,7 +68,6 @@ describe('xml node utils', () => {
       throw new Error('The specimen does not have the required test case');
     }
 
-    // eslint-disable-next-line unicorn/prefer-https
     expect(inspected.getAttribute('xmlns')).toBe('http://external.com/inner');
   });
 

@@ -26,3 +26,9 @@ export interface XmlNodeInterface<TAttributes extends string = string> {
   setCData: (cdata: string) => void;
   [Symbol.iterator]: () => IterableIterator<XmlNodeInterface>;
 }
+
+export interface ContainerWithAttributeInterface {
+  getAttributeValue: (attribute: string) => string;
+}
+
+export type NamespaceFilter = (namespace: string) => boolean;
