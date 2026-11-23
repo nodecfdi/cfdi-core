@@ -15,8 +15,6 @@ export const nodeToXmlString = (node: XmlNodeInterface, withXmlHeader = false): 
   if (withXmlHeader) {
     const pi = document.createProcessingInstruction('xml', 'version="1.0" encoding="UTF-8"');
     document.insertBefore(pi, document.firstChild);
-
-    return getSerializer().serializeToString(document);
   }
 
   return getSerializer().serializeToString(document);

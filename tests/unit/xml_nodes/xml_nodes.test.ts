@@ -171,4 +171,23 @@ describe('xml nodes', () => {
     nodes.add(notListed);
     expect(nodes.get(4)).toBe(notListed);
   });
+
+  test('add a large amount of nodes', () => {
+    const list = Array.from({ length: 200_000 }, () => new XmlNode('item'));
+    const nodes = new XmlNodes(list);
+
+    expect(nodes).toHaveLength(200_000);
+    expect(nodes.first()).toBe(list[0]);
+  });
+
+  test('adding nodes one by one keeps a linear-ish cost when there is no order', () => {
+    const parent = new XmlNode('parent');
+    const start = performance.now();
+    for (let index = 0; index < 10_000; index += 1) {
+      parent.addChild(new XmlNode('child'));
+    }
+
+    expect(parent.children()).toHaveLength(10_000);
+    expect(performance.now() - start).toBeLessThan(2000);
+  });
 });

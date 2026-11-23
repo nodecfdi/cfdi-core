@@ -40,7 +40,9 @@ export const newDocumentContent = (content: string): Document => {
 
     return newDocument(documentParse);
   } catch (error) {
-    throw new Error(`Cannot create a Document from xml string, errors: ${JSON.stringify(error)}`);
+    throw new Error(`Cannot create a Document from xml string, errors: ${JSON.stringify(error)}`, {
+      cause: error,
+    });
   }
 };
 

@@ -1,13 +1,5 @@
 import type { Attr, CDATASection, Document, Element, Node, Text } from '@xmldom/xmldom';
-import {
-
-  DOMImplementation,
-  DOMParser,
-
-  onErrorStopParsing,
-
-  XMLSerializer,
-} from '@xmldom/xmldom';
+import { DOMImplementation, DOMParser, onErrorStopParsing, XMLSerializer } from '@xmldom/xmldom';
 
 export const getParser = (): DOMParser => {
   return new DOMParser({

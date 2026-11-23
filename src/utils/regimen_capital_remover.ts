@@ -166,16 +166,23 @@ export default class RegimenCapitalRemover {
   private readonly _regularExpression: RegExp;
 
   public constructor(...suffixes: string[]) {
-    const suffixesPattern = suffixes.join('|');
-    if (suffixesPattern === '') {
+    const validSuffixes = suffixes.filter((suffix) => suffix !== '');
+    if (validSuffixes.length === 0) {
       throw new Error('No se han establecido sufijos para remover');
     }
 
-    this._regularExpression = new RegExp(` +(${suffixesPattern})$`, 'iu');
+    // Suffixes are literal text, not patterns: escape them so that values like 'SCL (LIMITADA)' match as written.
+    // The lookbehind makes the match start only on the first space of a run, avoiding quadratic backtracking.
+    const suffixesPattern = validSuffixes.map((suffix) => RegimenCapitalRemover.escapeRegExp(suffix)).join('|');
+    this._regularExpression = new RegExp(`(?<! ) +(?:${suffixesPattern})$`, 'iu');
   }
 
   public remove(name: string): string {
     return name.replace(this._regularExpression, '');
+  }
+
+  private static escapeRegExp(value: string): string {
+    return value.replaceAll(/[$()*+.?[\\\]^{|}]/gu, String.raw`\$&`);
   }
 
   public static createDefault(): RegimenCapitalRemover {

@@ -100,12 +100,12 @@ export default class XmlAttributes<TAttributes extends string = string> {
       return null;
     }
 
-    if (/boolean|number|string/u.test(typeof value)) {
+    if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
       return String(value);
     }
 
     if (typeof value === 'object' && !Array.isArray(value)) {
-      return value.toString();
+      return String(value);
     }
 
     throw new SyntaxError(`Cannot convert value of attribute ${key} to string`);

@@ -75,4 +75,34 @@ describe('xml nodes sorter', () => {
 
     expect(JSON.stringify(sorter.sort(list))).toStrictEqual(JSON.stringify(list));
   });
+
+  test('nodes named like Object.prototype members are treated as not listed', () => {
+    const a = new XmlNode('a');
+    const b = new XmlNode('b');
+    const ctor = new XmlNode('constructor');
+    const toStringNode = new XmlNode('toString');
+    const proto = new XmlNode('__proto__');
+
+    const sorter = new XmlNodesSorter(['b', 'a']);
+
+    expect(sorter.sort([ctor, a, toStringNode, proto, b])).toStrictEqual([b, a, ctor, toStringNode, proto]);
+  });
+
+  test('sort keeps relative position of equal nodes', () => {
+    const foo1 = new XmlNode('foo', { id: '1' });
+    const bar = new XmlNode('bar');
+    const foo2 = new XmlNode('foo', { id: '2' });
+
+    const sorter = new XmlNodesSorter(['bar', 'foo']);
+    const sorted = sorter.sort([foo1, bar, foo2]);
+
+    expect(sorted[1]).toBe(foo1);
+    expect(sorted[2]).toBe(foo2);
+  });
+
+  test('sort returns same instance when there is no order', () => {
+    const list = [new XmlNode('foo')];
+
+    expect(new XmlNodesSorter().sort(list)).toBe(list);
+  });
 });

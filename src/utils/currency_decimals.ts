@@ -1,5 +1,12 @@
 import { Decimal } from 'decimal.js';
 
+const KNOWN_CURRENCIES: ReadonlyMap<string, number> = new Map([
+  ['MXN', 2],
+  ['EUR', 2],
+  ['USD', 2],
+  ['XXX', 0],
+]);
+
 export default class CurrencyDecimals {
   private readonly _currency: string;
 
@@ -60,13 +67,6 @@ export default class CurrencyDecimals {
   }
 
   public static knownCurrencyDecimals(currency: string): number {
-    const knownCurrencies: Record<string, number> = {
-      MXN: 2,
-      EUR: 2,
-      USD: 2,
-      XXX: 0,
-    };
-
-    return Object.hasOwn(knownCurrencies, currency) ? knownCurrencies[currency] : -1;
+    return KNOWN_CURRENCIES.get(currency) ?? -1;
   }
 }

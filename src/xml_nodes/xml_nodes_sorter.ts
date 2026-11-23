@@ -2,48 +2,50 @@ import type { XmlNodeInterface } from '../types';
 
 export default class XmlNodesSorter {
   /**
-  Record of key (string) value (number|int) representing the naming order.
+   * Map of node name to its position in the naming order.
+   * A Map is used instead of a plain object so names like "constructor" or "toString"
+   * do not resolve to inherited Object.prototype members.
    */
-  private _order: Record<string, number> = {};
-
-  declare private _length: number;
+  private _order = new Map<string, number>();
 
   public constructor(order: string[] = []) {
     this.setOrder(order);
   }
 
   public setOrder(names: string[]): boolean {
-    const order = Object.fromEntries(this.parseNames(names).map((entry, index) => [entry, index]));
+    const parsedNames = this.parseNames(names);
+    const currentNames = this.getOrder();
 
-    if (JSON.stringify(this._order) === JSON.stringify(order)) {
+    if (
+      parsedNames.length === currentNames.length
+      && parsedNames.every((name, index) => name === currentNames[index])
+    ) {
       return false;
     }
 
-    this._order = order;
-    this._length = Object.keys(order).length;
+    this._order = new Map(parsedNames.map((name, index) => [name, index]));
 
     return true;
   }
 
   public parseNames(names: unknown[]): string[] {
-    return [...new Set(names.filter((name) => this.isValidName(name)))] as string[];
+    return [...new Set(names.filter((name) => this.isValidName(name)))];
   }
 
   public getOrder(): string[] {
-    return Array.from(Object.entries(this._order), (entry) => entry[0]);
+    return Array.from(this._order, ([name]) => name);
   }
 
+  /**
+   * Returns the same array instance when there is no order defined.
+   * Array.prototype.toSorted is stable, so nodes with equal weight keep their relative position.
+   */
   public sort(nodes: XmlNodeInterface[]): XmlNodeInterface[] {
-    let sortedNodes = nodes;
-
-    if (this._length > 0) {
-      sortedNodes = this.stableArraySort(
-        sortedNodes,
-        (a: XmlNodeInterface, b: XmlNodeInterface): number => this.compareNodesByName(a, b),
-      );
+    if (this._order.size === 0) {
+      return nodes;
     }
 
-    return sortedNodes;
+    return nodes.toSorted((a, b) => this.compareNodesByName(a, b));
   }
 
   public compareNodesByName(a: XmlNodeInterface, b: XmlNodeInterface): number {
@@ -54,33 +56,10 @@ export default class XmlNodesSorter {
   }
 
   public valueByName(name: string): number {
-    return this._order[name] ?? this._length;
+    return this._order.get(name) ?? this._order.size;
   }
 
   private isValidName(name: unknown): name is string {
-    return typeof name === 'string' && Boolean(name) && name !== '0';
-  }
-
-  /**
-   * This function is a replacement for sort that try to sort
-   * but if items are equal then uses the relative position as second argument.
-   */
-  private stableArraySort<T = XmlNodeInterface>(input: T[], callable: (a: T, b: T) => number): T[] {
-    let list = input.map((value, index) => ({
-      index,
-      item: value,
-    }));
-
-    list = list.toSorted((first, second) => {
-      let value = callable(first.item, second.item);
-
-      if (value === 0) {
-        value = Math.sign(first.index - second.index);
-      }
-
-      return value;
-    });
-
-    return list.map((node) => node.item);
+    return typeof name === 'string' && name !== '' && name !== '0';
   }
 }

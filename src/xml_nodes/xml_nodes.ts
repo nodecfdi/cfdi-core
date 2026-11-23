@@ -11,22 +11,7 @@ export default class XmlNodes extends Array<XmlNodeInterface> {
   }
 
   public add(...nodes: XmlNodeInterface[]): this {
-    let somethingChange = false;
-
-    for (const node of nodes) {
-      if (this.has(node)) {
-        continue;
-      }
-
-      this.push(node);
-      somethingChange = true;
-    }
-
-    if (somethingChange) {
-      this.order();
-    }
-
-    return this;
+    return this.addAll(nodes);
   }
 
   public delete(node: XmlNodeInterface): this {
@@ -80,7 +65,15 @@ export default class XmlNodes extends Array<XmlNodeInterface> {
   }
 
   public order(): void {
-    this.splice(0, this.length, ...this._sorter.sort(this));
+    const sorted = this._sorter.sort(this);
+    if (sorted === this) {
+      return; // nothing to sort, avoid rewriting the whole collection
+    }
+
+    // assign in place instead of splice(...spread) to avoid "Maximum call stack size exceeded" on large collections
+    for (const [index, node] of sorted.entries()) {
+      this[index] = node;
+    }
   }
 
   /**
@@ -107,12 +100,32 @@ export default class XmlNodes extends Array<XmlNodeInterface> {
       }
     }
 
-    this.add(...nodes);
-
-    return this;
+    return this.addAll(nodes);
   }
 
   public static get [Symbol.species](): ArrayConstructor {
     return Array;
+  }
+
+  private addAll(nodes: XmlNodeInterface[]): this {
+    let somethingChange = false;
+    // for bulk additions a Set keeps de-duplication O(1) per node instead of Array#includes O(n)
+    const existing = nodes.length > 1 ? new Set<XmlNodeInterface>(this) : undefined;
+
+    for (const node of nodes) {
+      if (existing ? existing.has(node) : this.has(node)) {
+        continue;
+      }
+
+      existing?.add(node);
+      this.push(node);
+      somethingChange = true;
+    }
+
+    if (somethingChange) {
+      this.order();
+    }
+
+    return this;
   }
 }
